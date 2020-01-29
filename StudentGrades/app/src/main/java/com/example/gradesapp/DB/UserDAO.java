@@ -21,7 +21,7 @@ public interface UserDAO {
     @Delete
     void delete(User... users);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " ORDER BY username")
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
     List<User> getUsers();
 
     @Query("DELETE FROM " + AppDatabase.USER_TABLE)

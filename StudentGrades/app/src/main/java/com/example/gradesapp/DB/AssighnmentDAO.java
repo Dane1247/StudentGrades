@@ -21,7 +21,7 @@ public interface AssighnmentDAO {
     @Delete
     void delete(Assighnment... users);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " ORDER BY username")
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
     List<Assighnment> getAssighnments();
 
     @Query("DELETE FROM " + AppDatabase.USER_TABLE)
