@@ -21,9 +21,9 @@ public interface GradeDAO {
     @Delete
     void delete(Grade... users);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
+    @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE)
     List<Grade> getGrades();
 
-    @Query("DELETE FROM " + AppDatabase.USER_TABLE)
+    @Query("DELETE FROM " + AppDatabase.GRADE_TABLE)
     void nukeTable();
 }

@@ -21,9 +21,9 @@ public interface EnrollmentDAO {
     @Delete
     void delete(Enrollment... users);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
+    @Query("SELECT * FROM " + AppDatabase.ENROLLMENT_TABLE)
     List<Enrollment> getEnrollmentss();
 
-    @Query("DELETE FROM " + AppDatabase.USER_TABLE)
+    @Query("DELETE FROM " + AppDatabase.ENROLLMENT_TABLE)
     void nukeTable();
 }
