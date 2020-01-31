@@ -21,9 +21,9 @@ public interface AssighnmentDAO {
     @Delete
     void delete(Assighnment... users);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
+    @Query("SELECT * FROM " + AppDatabase.ASSIGHNMENT_TABLE)
     List<Assighnment> getAssighnments();
 
-    @Query("DELETE FROM " + AppDatabase.USER_TABLE)
+    @Query("DELETE FROM " + AppDatabase.ASSIGHNMENT_TABLE)
     void nukeTable();
 }
