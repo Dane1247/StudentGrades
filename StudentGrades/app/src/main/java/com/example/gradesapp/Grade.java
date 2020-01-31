@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 import com.example.gradesapp.DB.AppDatabase;
 
-@Entity(tableName = AppDatabase.USER_TABLE)
+@Entity(tableName = AppDatabase.GRADE_TABLE)
 public class Grade {
     @PrimaryKey(autoGenerate = true)
     private int key;
