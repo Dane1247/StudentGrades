@@ -24,6 +24,10 @@ public interface UserDAO {
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
     List<User> getUsers();
 
+    //ask if a list or object should be returned
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE userID = :inputUserID")
+    List<User> getUserWithId(String inputUserID);
+
     @Query("DELETE FROM " + AppDatabase.USER_TABLE)
     void nukeTable();
 }
