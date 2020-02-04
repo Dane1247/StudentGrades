@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -30,10 +31,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /* Dane's help
-        Button mainButton = findViewById(R.id.button2);
-        mainButton.setOnClickListener(new Veie
-        */
+        // only here to give me access to create account activity
+        sean_set_up_create_account_button();
+    }
+
+    /*
+        This function's sole purpose is to allow me to debug the create account activity.
+    */
+    private void sean_set_up_create_account_button(){
+        Button createAccount = (Button) findViewById(R.id.button2);
+        createAccount.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(MainActivity.this, CreatAccount.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -58,8 +71,5 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void startContent(View view){
-        Intent intent = new Intent(this,CreateAccountActivity.class);
-        startActivity(intent);
-    }
+
 }
