@@ -24,6 +24,18 @@ public interface GradeDAO {
     @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE)
     List<Grade> getGrades();
 
+    @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE + " WHERE studentID = :inputStudentID")
+    List<Grade> getGradeWithStudentID(String inputStudentID);
+
+    @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE + " WHERE assighnmentID = :inputAssighnmentID")
+    List<Grade> getGradeWithAssighnmentID(String inputAssighnmentID);
+
+    @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE + " WHERE courseID = :inputCourseID")
+    List<Grade> getGradeWithCourseID(String inputCourseID);
+
+    @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE + " WHERE gradeID = :inputGradeID")
+    List<Grade> getGradeWithGradeID(String inputGradeID);
+
     @Query("DELETE FROM " + AppDatabase.GRADE_TABLE)
     void nukeTable();
 }
