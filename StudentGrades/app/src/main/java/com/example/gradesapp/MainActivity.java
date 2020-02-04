@@ -31,19 +31,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Sean
         // only here to give me access to create account activity
-        sean_set_up_create_account_button();
+        set_up_create_account_button();
     }
 
-    /*
-        This function's sole purpose is to allow me to debug the create account activity.
-    */
-    private void sean_set_up_create_account_button(){
-        Button createAccount = (Button) findViewById(R.id.button2);
+     // Sean
+     // I added a button to the main activity soley to give me access to the createAccount activity.
+    private void set_up_create_account_button(){
+        Button createAccount = (Button) findViewById(R.id.main_activity_create_account_button);
         createAccount.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent i = new Intent(MainActivity.this, CreatAccount.class);
+                Intent i = new Intent(MainActivity.this, CreateAccount.class);
                 startActivity(i);
             }
         });
