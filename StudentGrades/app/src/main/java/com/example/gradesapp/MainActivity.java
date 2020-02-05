@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.gradesapp.DB.AppDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Sean
+        // should lazy instantiate the db object defined in appdatabase
+        AppDatabase.buildINSTANCE(this);
         // Sean
         // only here to give me access to create account activity
         set_up_create_account_button();

@@ -12,8 +12,17 @@ public class User {
 
     String username,password,firstName,lastName,userID;
 
-    public User(String inputUsername, String inputPassword,
-                String inputFirstName, String inputLastName,String inputUserID){
+    public User(){
+
+    }
+
+    public User(
+        String inputUsername,
+        String inputPassword,
+        String inputFirstName,
+        String inputLastName,
+        String inputUserID
+    ){
         username = inputUsername;
         password = inputPassword;
         firstName = inputFirstName;

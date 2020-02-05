@@ -6,6 +6,11 @@ package com.example.gradesapp;
     validating new user credentials from the CreateAccount activity.
  */
 
+import com.example.gradesapp.DB.AppDatabase;
+import com.example.gradesapp.DB.UserDAO;
+
+import java.util.List;
+
 // Sean
 public class NewUserCredentials {
 
@@ -19,6 +24,8 @@ public class NewUserCredentials {
     private String password;
     // Sean
     private String passConf;
+    // Sean
+    private UserDAO userDAO;
 
     // Sean
     public NewUserCredentials(
@@ -33,6 +40,7 @@ public class NewUserCredentials {
         this.username  = username;
         this.password  = password;
         this.passConf  = passConf;
+        this.userDAO = AppDatabase.getINSTANCE().getUserDAO();
     }
 
     // Sean
@@ -59,7 +67,11 @@ public class NewUserCredentials {
     // Sean
     // needs implementation
     public boolean usernameTaken(){
-        return this.getUsername().equals("usernametaken");
+        List<User> query = this.userDAO.getUserFromUsername(this.getUsername());
+        if ( query.size() > 1 ){
+            return true;
+        }
+        return false;
     }
 
     // Sean
@@ -77,7 +89,14 @@ public class NewUserCredentials {
     // Sean
     // writes the credentials to the database
     public void save(){
-
+        User newUser = new User(
+            this.getUsername(),
+            this.getPassword(),
+            this.getFirstname(),
+            this.getLastname(),
+                "user_ID"
+        );
+        this.userDAO.insert(newUser);
     }
 
     // Sean

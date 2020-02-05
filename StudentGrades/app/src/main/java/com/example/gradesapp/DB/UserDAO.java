@@ -28,6 +28,10 @@ public interface UserDAO {
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE userID = :inputUserID")
     List<User> getUserWithId(String inputUserID);
 
+    // Sean
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE username = :username")
+    List<User> getUserFromUsername(String username);
+
     @Query("DELETE FROM " + AppDatabase.USER_TABLE)
     void nukeTable();
 }
