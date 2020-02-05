@@ -8,10 +8,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.room.Room;
+
+import com.example.gradesapp.DB.AppDatabase;
+import com.example.gradesapp.DB.UserDAO;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 public class CreateAccount extends AppCompatActivity {
+
+    private UserDAO userDAO;
+    private NewUserCredentials credentials;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +35,14 @@ public class CreateAccount extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        // Sean
+        // Creates the user DAO used to make new users/check against database
+        this.userDAO = Room.databaseBuilder(
+                this,
+                AppDatabase.class,
+                AppDatabase.dbName
+        ).allowMainThreadQueries().build().getUserDAO();
 
         // Sean
         // setting up the click behavior of the create account page submit button
@@ -66,6 +81,20 @@ public class CreateAccount extends AppCompatActivity {
     /* // Sean
         the method to be called from within onClick from the click listener within
         the submit button.
+
+        It gets the data the user entered into the text fields
+
+        creates a NewUserCredentials object with it
+
+        prints it just for a sanity check
+
+        checks for missing fields
+
+        checks for username taken
+
+        checks for password mismatch
+
+        if all is well, it saves the new user to the DB
      */
     private void submit_button_was_clicked(){
         // gets the user input from the view elements
@@ -76,28 +105,29 @@ public class CreateAccount extends AppCompatActivity {
         String passConf  = ((EditText) findViewById(R.id.create_account_password_confirm_edit_text)).getText().toString();
 
         // puts that data into a NewUserCredentials object
-        NewUserCredentials credentials = new NewUserCredentials(
+        this.credentials = new NewUserCredentials(
             firstname,
             lastname,
             username,
             password,
-            passConf
+            passConf,
+            this.userDAO
         );
 
         // Just for debugging
-        System.out.println( credentials );
+        System.out.println( this.credentials );
 
         // There are various things that could go wrong
         // for each one a methods is called to deal with it
-        if ( credentials.missingFields() ){
+        if ( this.credentials.missingFields() ){
             this.handle_missing_fields();
             return;
         }
-        if ( credentials.usernameTaken() ){
+        if ( this.credentials.usernameTaken() ){
             this.handle_username_taken();
             return;
         }
-        if ( credentials.passwordDoesntMatch() ){
+        if ( this.credentials.passwordDoesntMatch() ){
             this.handle_password_doesnt_match();
             return;
         }
@@ -105,58 +135,51 @@ public class CreateAccount extends AppCompatActivity {
         // Sean
         // by this point no errors should exist
         // time to save the new user info and return to main activiy
-        this.create_account(credentials);
+        this.create_account();
     }
 
-    /* // Sean
-     called when cancel button was clicked, goes back to main activity
-     Should cancel behave like the back button?? just go to last activity?
-     not exclusively main activity?
-    */
-
+    // Sean
     private void cancel_button_was_clicked(){
         finish();
-        //Intent i = new Intent(CreateAccount.this, MainActivity.class);
-        //startActivity(i);
     }
 
     // Sean
     private void handle_username_taken(){
-        TextView messageBar = (TextView) findViewById(R.id.create_account_message_bar_text_view);
-        messageBar.setText("Username Taken");
-        messageBar.setTextColor(Color.RED);
+        this.change_message_bar_text("Username Taken", Color.RED);
         System.out.println("Username taken");
     }
 
     // Sean
     private void handle_password_doesnt_match(){
-        TextView messageBar = (TextView) findViewById(R.id.create_account_message_bar_text_view);
-        messageBar.setText("Passwords Did Not Match");
-        messageBar.setTextColor(Color.RED);
+        this.change_message_bar_text("Passwords Do Not Match", Color.RED);
         System.out.println("Passwords don't match");
     }
 
     // Sean
     private void handle_missing_fields(){
-        TextView messageBar = (TextView) findViewById(R.id.create_account_message_bar_text_view);
-        messageBar.setText("Please fill all fields");
-        messageBar.setTextColor(Color.RED);
-        System.out.println("Passwords don't match");
+        this.change_message_bar_text("Please Fill All Fields", Color.RED);
+        System.out.println("missing fields");
     }
 
     // Sean
-    private void create_account(NewUserCredentials credentials){
+    private void create_account(){
         // change message bar to "Success!"
-        TextView messageBar = (TextView) findViewById(R.id.create_account_message_bar_text_view);
-        messageBar.setText("Success!");
-        messageBar.setTextColor(Color.GREEN);
+        this.change_message_bar_text("Success!", Color.GREEN);
+
         // for debugging
         System.out.println("Account Created Successfully");
 
         // write new user to database
-        credentials.save();
+        this.credentials.save();
 
         // finish activity
         finish();
+    }
+
+    // Sean
+    private void change_message_bar_text(String newText, int newColor){
+        TextView messageBar = (TextView) findViewById(R.id.create_account_message_bar_text_view);
+        messageBar.setText(newText);
+        messageBar.setTextColor(newColor);
     }
 }

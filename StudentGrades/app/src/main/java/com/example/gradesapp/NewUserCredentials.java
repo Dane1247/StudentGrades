@@ -6,7 +6,6 @@ package com.example.gradesapp;
     validating new user credentials from the CreateAccount activity.
  */
 
-import com.example.gradesapp.DB.AppDatabase;
 import com.example.gradesapp.DB.UserDAO;
 
 import java.util.List;
@@ -33,14 +32,15 @@ public class NewUserCredentials {
             String lastname,
             String username,
             String password,
-            String passConf
+            String passConf,
+            UserDAO userDAO
     ){
         this.firstname = firstname;
         this.lastname  = lastname;
         this.username  = username;
         this.password  = password;
         this.passConf  = passConf;
-        this.userDAO = AppDatabase.getINSTANCE().getUserDAO();
+        this.userDAO   = userDAO;
     }
 
     // Sean
@@ -65,10 +65,11 @@ public class NewUserCredentials {
     }
 
     // Sean
-    // needs implementation
+    // get a list of users with this.username and if there is one or more,
+    // returns true to indicate that the username is taken.
     public boolean usernameTaken(){
         List<User> query = this.userDAO.getUserFromUsername(this.getUsername());
-        if ( query.size() > 1 ){
+        if ( query.size() >= 1 ){
             return true;
         }
         return false;

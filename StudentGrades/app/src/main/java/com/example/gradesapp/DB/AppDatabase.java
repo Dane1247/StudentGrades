@@ -1,9 +1,6 @@
 package com.example.gradesapp.DB;
 
-import android.content.Context;
-
 import androidx.room.Database;
-import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.gradesapp.Assighnment;
@@ -28,19 +25,4 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract GradeCategoryDAO getGradeCategoryDAO();
     public abstract GradeDAO getGradeDAO();
     public abstract UserDAO getUserDAO();
-
-    // Sean
-    // https://medium.com/@ajaysaini.official/building-database-with-room-persistence-library-ecf7d0b8f3e9
-    private static AppDatabase INSTANCE = null;
-    public static void buildINSTANCE(Context context){
-        if ( INSTANCE == null ){
-            INSTANCE = Room.databaseBuilder(
-                    context.getApplicationContext(),
-                    AppDatabase.class,
-                    AppDatabase.dbName).allowMainThreadQueries().build();
-        }
-    }
-    public static AppDatabase getINSTANCE(){
-        return INSTANCE;
-    }
 }
