@@ -22,7 +22,13 @@ public interface EnrollmentDAO {
     void delete(Enrollment... users);
 
     @Query("SELECT * FROM " + AppDatabase.ENROLLMENT_TABLE)
-    List<Enrollment> getEnrollmentss();
+    List<Enrollment> getEnrollments();
+
+    @Query("SELECT * FROM " + AppDatabase.ENROLLMENT_TABLE + " WHERE studentID = :inputStudentID")
+    List<Enrollment> getEnrollmentsWithStudentID(String inputStudentID);
+
+    @Query("SELECT * FROM " + AppDatabase.ENROLLMENT_TABLE + " WHERE courseID = :inputCourseID")
+    List<Enrollment> getEnrollmentsWithCourseID(String inputCourseID);
 
     @Query("DELETE FROM " + AppDatabase.ENROLLMENT_TABLE)
     void nukeTable();
