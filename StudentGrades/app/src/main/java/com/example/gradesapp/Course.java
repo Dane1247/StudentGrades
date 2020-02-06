@@ -20,6 +20,15 @@ public class Course {
         this.courseID = courseID;
     }
 
+    public Course() {
+        this.instructor = "";
+        this.title = "";
+        this.description = "";
+        this.startDate = "";
+        this.endDate = "";
+        this.courseID = "";
+    }
+
     public int getKey() {
         return key;
     }
@@ -74,5 +83,17 @@ public class Course {
 
     public void setCourseID(String courseID) {
         this.courseID = courseID;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "instructor='" + instructor + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", courseID='" + courseID + '\'' +
+                '}';
     }
 }

@@ -21,6 +21,15 @@ public class Grade {
         this.gradeID = gradeID;
     }
 
+    public Grade() {
+        this.score = "";
+        this.assighnmentID = "";
+        this.studentID = "";
+        this.courseID = "";
+        this.dateEarned = "";
+        this.gradeID = "";
+    }
+
     public int getKey() {
         return key;
     }
@@ -75,5 +84,17 @@ public class Grade {
 
     public void setGradeID(String gradeID) {
         this.gradeID = gradeID;
+    }
+
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "score='" + score + '\'' +
+                ", assighnmentID='" + assighnmentID + '\'' +
+                ", studentID='" + studentID + '\'' +
+                ", courseID='" + courseID + '\'' +
+                ", dateEarned='" + dateEarned + '\'' +
+                ", gradeID='" + gradeID + '\'' +
+                '}';
     }
 }
