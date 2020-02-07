@@ -10,14 +10,14 @@ public class Grade {
     @PrimaryKey(autoGenerate = true)
     private int key;
 
-    String score,assighnmentID,studentID,courseID,dateEarned,gradeID;
+    String score,assighnmentID,studentID,courseID,gradeEarned,gradeID;
 
-    public Grade(String score, String assighnmentID, String studentID, String courseID, String dateEarned, String gradeID) {
+    public Grade(String score, String assighnmentID, String studentID, String courseID, String gradeEarned, String gradeID) {
         this.score = score;
         this.assighnmentID = assighnmentID;
         this.studentID = studentID;
         this.courseID = courseID;
-        this.dateEarned = dateEarned;
+        this.gradeEarned = gradeEarned;
         this.gradeID = gradeID;
     }
 
@@ -26,7 +26,7 @@ public class Grade {
         this.assighnmentID = "";
         this.studentID = "";
         this.courseID = "";
-        this.dateEarned = "";
+        this.gradeEarned = "";
         this.gradeID = "";
     }
 
@@ -71,11 +71,11 @@ public class Grade {
     }
 
     public String getDateEarned() {
-        return dateEarned;
+        return gradeEarned;
     }
 
-    public void setDateEarned(String dateEarned) {
-        this.dateEarned = dateEarned;
+    public void setDateEarned(String gradeEarned) {
+        this.gradeEarned = gradeEarned;
     }
 
     public String getGradeID() {
@@ -88,13 +88,11 @@ public class Grade {
 
     @Override
     public String toString() {
-        return "Grade{" +
-                "score='" + score + '\'' +
-                ", assighnmentID='" + assighnmentID + '\'' +
-                ", studentID='" + studentID + '\'' +
-                ", courseID='" + courseID + '\'' +
-                ", dateEarned='" + dateEarned + '\'' +
-                ", gradeID='" + gradeID + '\'' +
-                '}';
+        return "Score: " + score + '\n' +
+                "Assighnment ID: " + assighnmentID + '\n' +
+                "Student ID: " + studentID + '\'' +
+                "Course ID: " + courseID + '\'' +
+                "Grade ID: " + gradeID + '\n' +
+                "Grade Earned: " + gradeEarned;
     }
 }
