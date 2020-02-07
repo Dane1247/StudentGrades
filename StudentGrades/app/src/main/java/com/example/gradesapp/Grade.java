@@ -10,14 +10,14 @@ public class Grade {
     @PrimaryKey(autoGenerate = true)
     private int key;
 
-    String score,assighnmentID,studentID,courseID,gradeEarned,gradeID;
+    String score,assighnmentID,studentID,courseID,dateEarned,gradeID;
 
-    public Grade(String score, String assighnmentID, String studentID, String courseID, String gradeEarned, String gradeID) {
+    public Grade(String score, String assighnmentID, String studentID, String courseID, String dateEarned, String gradeID) {
         this.score = score;
         this.assighnmentID = assighnmentID;
         this.studentID = studentID;
         this.courseID = courseID;
-        this.gradeEarned = gradeEarned;
+        this.dateEarned = dateEarned;
         this.gradeID = gradeID;
     }
 
@@ -26,7 +26,7 @@ public class Grade {
         this.assighnmentID = "";
         this.studentID = "";
         this.courseID = "";
-        this.gradeEarned = "";
+        this.dateEarned = "";
         this.gradeID = "";
     }
 
@@ -71,11 +71,11 @@ public class Grade {
     }
 
     public String getDateEarned() {
-        return gradeEarned;
+        return dateEarned;
     }
 
-    public void setDateEarned(String gradeEarned) {
-        this.gradeEarned = gradeEarned;
+    public void setDateEarned(String dateEarned) {
+        this.dateEarned = dateEarned;
     }
 
     public String getGradeID() {
@@ -88,11 +88,11 @@ public class Grade {
 
     @Override
     public String toString() {
-        return "Score: " + score + '\n' +
-                "Assighnment ID: " + assighnmentID + '\n' +
-                "Student ID: " + studentID + '\'' +
-                "Course ID: " + courseID + '\'' +
+        return  "Assighnment ID: " + assighnmentID + '\n' +
+                "Student ID: " + studentID + '\n' +
+                "Course ID: " + courseID + '\n' +
                 "Grade ID: " + gradeID + '\n' +
-                "Grade Earned: " + gradeEarned;
+                "Score: " + score + '\n' +
+                "Date Earned: " + dateEarned;
     }
 }

@@ -87,11 +87,11 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Instructor: " + instructor + '\n' +
+        return "Course ID: " + courseID + "\n";
+                "Instructor: " + instructor + '\n' +
                 "Title: " + title + '\n' +
                 "Description: " + description + '\n' +
                 "Start Date: " + startDate + '\n' +
-                "End Date: " + endDate + '\n' +
-                "Course ID: " + courseID;
+                "End Date: " + endDate;
     }
 }

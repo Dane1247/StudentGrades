@@ -60,5 +60,6 @@ public class Enrollment {
         return "Student ID: " + studentID + '\n' +
                 "Course ID: " + courseID + '\n' +
                 "Enrollment Date: " + enrollmentDate;
+        
     }
 }
