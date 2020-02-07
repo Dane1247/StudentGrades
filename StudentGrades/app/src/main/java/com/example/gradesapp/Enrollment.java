@@ -57,10 +57,9 @@ public class Enrollment {
 
     @Override
     public String toString() {
-        return "Enrollment{" +
-                "studentID='" + studentID + '\'' +
-                ", courseID='" + courseID + '\'' +
-                ", enrollmentDate='" + enrollmentDate + '\'' +
-                '}';
+        return "Student ID: " + studentID + '\n' +
+                "Course ID: " + courseID + '\n' +
+                "Enrollment Date: " + enrollmentDate;
+        
     }
 }

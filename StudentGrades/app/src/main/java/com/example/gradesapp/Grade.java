@@ -88,13 +88,11 @@ public class Grade {
 
     @Override
     public String toString() {
-        return "Grade{" +
-                "score='" + score + '\'' +
-                ", assighnmentID='" + assighnmentID + '\'' +
-                ", studentID='" + studentID + '\'' +
-                ", courseID='" + courseID + '\'' +
-                ", dateEarned='" + dateEarned + '\'' +
-                ", gradeID='" + gradeID + '\'' +
-                '}';
+        return  "Assighnment ID: " + assighnmentID + '\n' +
+                "Student ID: " + studentID + '\n' +
+                "Course ID: " + courseID + '\n' +
+                "Grade ID: " + gradeID + '\n' +
+                "Score: " + score + '\n' +
+                "Date Earned: " + dateEarned;
     }
 }

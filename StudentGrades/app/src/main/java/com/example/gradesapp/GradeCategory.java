@@ -71,12 +71,10 @@ public class GradeCategory {
 
     @Override
     public String toString() {
-        return "GradeCategory{" +
-                "title='" + title + '\'' +
-                ", gradeID='" + gradeID + '\'' +
-                ", assighnedDate='" + assighnedDate + '\'' +
-                ", categoryID='" + categoryID + '\'' +
-                ", weight=" + weight +
-                '}';
+        return "Title: " + title + '\n' +
+                "Grade ID: " + gradeID + '\n' +
+                "AssighnedDate: " + assighnedDate + '\n' +
+                "Category ID: " + categoryID + '\n' +
+                "Weight: " + weight;
     }
 }
