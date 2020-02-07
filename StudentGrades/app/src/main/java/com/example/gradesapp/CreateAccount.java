@@ -134,7 +134,7 @@ public class CreateAccount extends AppCompatActivity {
 
         // Sean
         // by this point no errors should exist
-        // time to save the new user info and return to main activiy
+        // time to save the new user info and return to main activity
         this.create_account();
     }
 
