@@ -23,6 +23,17 @@ public class Assighnment {
         this.maxScore = maxScore;
     }
 
+    public Assighnment() {
+        this.details = "";
+        this.assighnedDate = "";
+        this.dueDate = "";
+        this.categoryID = "";
+        this.courseID = "";
+        this.assighnmentID = "";
+        this.earnedScore = 1f;
+        this.maxScore = 1f;
+    }
+
     public int getKey() {
         return key;
     }
@@ -93,5 +104,19 @@ public class Assighnment {
 
     public void setMaxScore(Float maxScore) {
         this.maxScore = maxScore;
+    }
+
+    @Override
+    public String toString() {
+        return "Assighnment{" +
+                "details='" + details + '\'' +
+                ", assighnedDate='" + assighnedDate + '\'' +
+                ", dueDate='" + dueDate + '\'' +
+                ", categoryID='" + categoryID + '\'' +
+                ", courseID='" + courseID + '\'' +
+                ", assighnmentID='" + assighnmentID + '\'' +
+                ", earnedScore=" + earnedScore +
+                ", maxScore=" + maxScore +
+                '}';
     }
 }

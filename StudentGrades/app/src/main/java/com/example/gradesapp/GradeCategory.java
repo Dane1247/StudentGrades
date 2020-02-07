@@ -13,12 +13,12 @@ public class GradeCategory {
     String title,gradeID,assighnedDate,categoryID;
     Float weight;
 
-    public GradeCategory(String title, String gradeID, String assighnedDate, String categoryID, Float weight) {
-        this.title = title;
-        this.gradeID = gradeID;
-        this.assighnedDate = assighnedDate;
-        this.categoryID = categoryID;
-        this.weight = weight;
+    public GradeCategory() {
+        this.title = "";
+        this.gradeID = "";
+        this.assighnedDate = "";
+        this.categoryID = "";
+        this.weight = 1f;
     }
 
     public int getKey() {
@@ -67,5 +67,16 @@ public class GradeCategory {
 
     public void setWeight(Float weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "GradeCategory{" +
+                "title='" + title + '\'' +
+                ", gradeID='" + gradeID + '\'' +
+                ", assighnedDate='" + assighnedDate + '\'' +
+                ", categoryID='" + categoryID + '\'' +
+                ", weight=" + weight +
+                '}';
     }
 }

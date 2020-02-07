@@ -21,6 +21,14 @@ public class User {
         userID = inputUserID;
     }
 
+    public User(){
+        username = "";
+        password = "";
+        firstName = "";
+        lastName = "";
+        userID = "";
+    }
+
     public int getKey() {
         return key;
     }
@@ -67,5 +75,16 @@ public class User {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userID='" + userID + '\'' +
+                '}';
     }
 }
