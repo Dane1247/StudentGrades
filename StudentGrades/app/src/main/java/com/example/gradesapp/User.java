@@ -68,4 +68,12 @@ public class User {
     public void setUserID(String userID) {
         this.userID = userID;
     }
+
+    public User() {
+        username = "";
+        password = "";
+        firstName = "";
+        lastName = "";
+        userID = "";
+    }
 }

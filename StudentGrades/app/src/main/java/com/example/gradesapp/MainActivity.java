@@ -1,7 +1,9 @@
 package com.example.gradesapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.gradesapp.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -11,8 +13,9 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Login Button Create
+        Button loginButton = findViewById(R.id.LoginButton);
+        loginButton.setOnClickListener(this);
+
+        // Create Account Button Create
+        Button createAccountButton = findViewById(R.id.CreateAcc_Button);
+        createAccountButton.setOnClickListener(this);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +40,22 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        // Login Button Action/Intent
+        if (v.getId() == R.id.LoginButton) {
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+        }
+
+        // this is will be for the create account button
+        /*else if (v.getId() == R.id.CreateAccountButton) {
+            Intent i = new Intent(this, createAccountActivity.class);
+            startActivity(i);
+        }*/
     }
 
     @Override
