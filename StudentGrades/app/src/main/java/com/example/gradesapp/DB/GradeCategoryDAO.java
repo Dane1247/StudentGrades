@@ -25,10 +25,10 @@ public interface GradeCategoryDAO {
     List<GradeCategory> getGradeCategories();
 
     @Query("SELECT * FROM " + AppDatabase.GRADECATEGORY_TABLE + " WHERE gradeID = :inputGradeID")
-    List<GradeCategory> getGradeCategoryWithGradeID(String inputGradeID);
+    List<GradeCategory> getGradeCategoryWithGradeID(int inputGradeID);
 
     @Query("SELECT * FROM " + AppDatabase.GRADECATEGORY_TABLE + " WHERE categoryID = :inputCategoryID")
-    List<GradeCategory> getGradeCategoryWithCategoryID(String inputCategoryID);
+    List<GradeCategory> getGradeCategoryWithCategoryID(int inputCategoryID);
 
     @Query("DELETE FROM " + AppDatabase.GRADECATEGORY_TABLE)
     void nukeTable();

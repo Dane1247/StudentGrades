@@ -25,13 +25,13 @@ public interface AssighnmentDAO {
     List<Assighnment> getAssighnments();
 
     @Query("SELECT * FROM " + AppDatabase.ASSIGHNMENT_TABLE + " WHERE assighnmentID = :inputAssighnmentID")
-    List<Assighnment> getAssighnmentsWithAssighnmentID(String inputAssighnmentID);
+    List<Assighnment> getAssighnmentsWithAssighnmentID(int inputAssighnmentID);
 
     @Query("SELECT * FROM " + AppDatabase.ASSIGHNMENT_TABLE + " WHERE courseID = :inputCourseID")
-    List<Assighnment> getAssighnmentsWithCourseID(String inputCourseID);
+    List<Assighnment> getAssighnmentsWithCourseID(int inputCourseID);
 
     @Query("SELECT * FROM " + AppDatabase.ASSIGHNMENT_TABLE + " WHERE categoryID = :inputCategoryID")
-    List<Assighnment> getAssighnmentsWithCategoryID(String inputCategoryID);
+    List<Assighnment> getAssighnmentsWithCategoryID(int inputCategoryID);
 
     @Query("DELETE FROM " + AppDatabase.ASSIGHNMENT_TABLE)
     void nukeTable();

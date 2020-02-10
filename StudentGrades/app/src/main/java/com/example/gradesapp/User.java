@@ -59,11 +59,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getUserID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public void setUserID(int studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
