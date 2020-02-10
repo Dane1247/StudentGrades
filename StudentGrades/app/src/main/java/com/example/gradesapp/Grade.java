@@ -9,21 +9,22 @@ import com.example.gradesapp.DB.AppDatabase;
 public class Grade {
     @PrimaryKey(autoGenerate = true)
     private int gradeID;
-    String score,assighnmentID,studentID,courseID,dateEarned;
+    String score,dateEarned;
+    int assighnmentID,studentID,courseID;
 
-    public Grade(String score, String assighnmentID, String studentID, String courseID, String dateEarned) {
+    public Grade(String score, String dateEarned, int assighnmentID, int studentID, int courseID) {
         this.score = score;
+        this.dateEarned = dateEarned;
         this.assighnmentID = assighnmentID;
         this.studentID = studentID;
         this.courseID = courseID;
-        this.dateEarned = dateEarned;
     }
 
     public Grade() {
         this.score = "";
-        this.assighnmentID = "";
-        this.studentID = "";
-        this.courseID = "";
+        this.assighnmentID = -1;
+        this.studentID = -1;
+        this.courseID = -1;
         this.dateEarned = "";
     }
 
@@ -35,27 +36,27 @@ public class Grade {
         this.score = score;
     }
 
-    public String getAssighnmentID() {
+    public int getAssighnmentID() {
         return assighnmentID;
     }
 
-    public void setAssighnmentID(String assighnmentID) {
+    public void setAssighnmentID(int assighnmentID) {
         this.assighnmentID = assighnmentID;
     }
 
-    public String getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
-    public String getCourseID() {
+    public int getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(String courseID) {
+    public void setCourseID(int courseID) {
         this.courseID = courseID;
     }
 

@@ -9,11 +9,11 @@ import com.example.gradesapp.DB.AppDatabase;
 public class GradeCategory {
     @PrimaryKey(autoGenerate = true)
     private int categoryID;
-
-    String title,gradeID,assighnedDate;
+    int gradeID;
+    String title,assighnedDate;
     Float weight;
 
-    public GradeCategory(String title, String gradeID, String assighnedDate, Float weight) {
+    public GradeCategory(String title, int gradeID, String assighnedDate, Float weight) {
         this.title = title;
         this.gradeID = gradeID;
         this.assighnedDate = assighnedDate;
@@ -22,7 +22,7 @@ public class GradeCategory {
 
     public GradeCategory() {
         this.title = "";
-        this.gradeID = "";
+        this.gradeID = -1;
         this.assighnedDate = "";
         this.weight = 1f;
     }
@@ -35,11 +35,11 @@ public class GradeCategory {
         this.title = title;
     }
 
-    public String getGradeID() {
+    public int getGradeID() {
         return gradeID;
     }
 
-    public void setGradeID(String gradeID) {
+    public void setGradeID(int gradeID) {
         this.gradeID = gradeID;
     }
 
