@@ -25,10 +25,10 @@ public interface EnrollmentDAO {
     List<Enrollment> getEnrollments();
 
     @Query("SELECT * FROM " + AppDatabase.ENROLLMENT_TABLE + " WHERE studentID = :inputStudentID")
-    List<Enrollment> getEnrollmentsWithStudentID(String inputStudentID);
+    List<Enrollment> getEnrollmentsWithStudentID(int inputStudentID);
 
     @Query("SELECT * FROM " + AppDatabase.ENROLLMENT_TABLE + " WHERE courseID = :inputCourseID")
-    List<Enrollment> getEnrollmentsWithCourseID(String inputCourseID);
+    List<Enrollment> getEnrollmentsWithCourseID(int inputCourseID);
 
     @Query("DELETE FROM " + AppDatabase.ENROLLMENT_TABLE)
     void nukeTable();

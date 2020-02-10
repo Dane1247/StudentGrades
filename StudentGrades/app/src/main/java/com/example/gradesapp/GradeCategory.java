@@ -8,25 +8,23 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.GRADECATEGORY_TABLE)
 public class GradeCategory {
     @PrimaryKey(autoGenerate = true)
-    private int key;
-
-    String title,gradeID,assighnedDate,categoryID;
+    private int categoryID;
+    int gradeID;
+    String title,assighnedDate;
     Float weight;
+
+    public GradeCategory(String title, int gradeID, String assighnedDate, Float weight) {
+        this.title = title;
+        this.gradeID = gradeID;
+        this.assighnedDate = assighnedDate;
+        this.weight = weight;
+    }
 
     public GradeCategory() {
         this.title = "";
-        this.gradeID = "";
+        this.gradeID = -1;
         this.assighnedDate = "";
-        this.categoryID = "";
         this.weight = 1f;
-    }
-
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
     }
 
     public String getTitle() {
@@ -37,11 +35,11 @@ public class GradeCategory {
         this.title = title;
     }
 
-    public String getGradeID() {
+    public int getGradeID() {
         return gradeID;
     }
 
-    public void setGradeID(String gradeID) {
+    public void setGradeID(int gradeID) {
         this.gradeID = gradeID;
     }
 
@@ -53,11 +51,11 @@ public class GradeCategory {
         this.assighnedDate = assighnedDate;
     }
 
-    public String getCategoryID() {
+    public int getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(String categoryID) {
+    public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }
 
@@ -71,10 +69,11 @@ public class GradeCategory {
 
     @Override
     public String toString() {
-        return "Title: " + title + '\n' +
+        return "Category ID: " + categoryID + '\n' +
                 "Grade ID: " + gradeID + '\n' +
+                "Title: " + title + '\n' +
                 "AssighnedDate: " + assighnedDate + '\n' +
-                "Category ID: " + categoryID + '\n' +
                 "Weight: " + weight;
     }
+    //
 }
