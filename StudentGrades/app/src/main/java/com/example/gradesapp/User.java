@@ -21,6 +21,17 @@ public class User {
         userID = inputUserID;
     }
 
+<<<<<<< HEAD
+=======
+    public User(){
+        username = "";
+        password = "";
+        firstName = "";
+        lastName = "";
+        userID = "";
+    }
+
+>>>>>>> parent of a244bd5... made initial database changes
     public int getKey() {
         return key;
     }
@@ -63,9 +74,25 @@ public class User {
 
     public String getUserID() {
         return userID;
+<<<<<<< HEAD
     }
 
     public void setUserID(String userID) {
         this.userID = userID;
+=======
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    @Override
+    public String toString() {
+        return "UserID: " + userID + '\n' +
+                "Username: " + username + '\n' +
+                "Password: " + password + '\n' +
+                "First Name='" + firstName + '\n' +
+                "Last Name='" + lastName;
+>>>>>>> parent of a244bd5... made initial database changes
     }
 }

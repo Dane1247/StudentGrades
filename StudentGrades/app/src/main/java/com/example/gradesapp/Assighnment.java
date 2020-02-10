@@ -23,6 +23,26 @@ public class Assighnment {
         this.maxScore = maxScore;
     }
 
+<<<<<<< HEAD
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+=======
+    public Assighnment() {
+        this.details = "";
+        this.assighnedDate = "";
+        this.dueDate = "";
+        this.categoryID = "";
+        this.courseID = "";
+        this.assighnmentID = "";
+        this.earnedScore = 1f;
+        this.maxScore = 1f;
+>>>>>>> parent of a244bd5... made initial database changes
+    }
+
     public int getKey() {
         return key;
     }

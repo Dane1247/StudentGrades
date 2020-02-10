@@ -19,12 +19,30 @@ public class Grade {
         this.courseID = courseID;
         this.dateEarned = dateEarned;
         this.gradeID = gradeID;
+<<<<<<< HEAD
     }
 
     public int getKey() {
         return key;
     }
 
+=======
+    }
+
+    public Grade() {
+        this.score = "";
+        this.assighnmentID = "";
+        this.studentID = "";
+        this.courseID = "";
+        this.dateEarned = "";
+        this.gradeID = "";
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+>>>>>>> parent of a244bd5... made initial database changes
     public void setKey(int key) {
         this.key = key;
     }
@@ -76,4 +94,17 @@ public class Grade {
     public void setGradeID(String gradeID) {
         this.gradeID = gradeID;
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public String toString() {
+        return  "Assighnment ID: " + assighnmentID + '\n' +
+                "Student ID: " + studentID + '\n' +
+                "Course ID: " + courseID + '\n' +
+                "Grade ID: " + gradeID + '\n' +
+                "Score: " + score + '\n' +
+                "Date Earned: " + dateEarned;
+    }
+>>>>>>> parent of a244bd5... made initial database changes
 }

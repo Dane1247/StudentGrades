@@ -18,12 +18,30 @@ public class Course {
         this.startDate = startDate;
         this.endDate = endDate;
         this.courseID = courseID;
+<<<<<<< HEAD
     }
 
     public int getKey() {
         return key;
     }
 
+=======
+    }
+
+    public Course() {
+        this.instructor = "";
+        this.title = "";
+        this.description = "";
+        this.startDate = "";
+        this.endDate = "";
+        this.courseID = "";
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+>>>>>>> parent of a244bd5... made initial database changes
     public void setKey(int key) {
         this.key = key;
     }
@@ -75,4 +93,17 @@ public class Course {
     public void setCourseID(String courseID) {
         this.courseID = courseID;
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public String toString() {
+        return "Course ID: " + courseID + "\n";
+                "Instructor: " + instructor + '\n' +
+                "Title: " + title + '\n' +
+                "Description: " + description + '\n' +
+                "Start Date: " + startDate + '\n' +
+                "End Date: " + endDate;
+    }
+>>>>>>> parent of a244bd5... made initial database changes
 }
