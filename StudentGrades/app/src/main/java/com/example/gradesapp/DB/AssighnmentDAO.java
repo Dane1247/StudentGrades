@@ -21,8 +21,6 @@ public interface AssighnmentDAO {
     @Delete
     void delete(Assighnment... users);
 
-    //categoryID,courseID,assighnmentID;
-
     @Query("SELECT * FROM " + AppDatabase.ASSIGHNMENT_TABLE)
     List<Assighnment> getAssighnments();
 

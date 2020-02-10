@@ -8,47 +8,29 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.ASSIGHNMENT_TABLE)
 public class Assighnment {
     @PrimaryKey(autoGenerate = true)
-    private int key;
-    String details,assighnedDate,dueDate,categoryID,courseID,assighnmentID;
+    private int assighnmentID;
+    String details,assighnedDate,dueDate;
+    int categoryID,courseID;
     Float earnedScore,maxScore;
 
-    public Assighnment(String details, String assighnedDate, String dueDate, String categoryID, String courseID, String assighnmentID, Float earnedScore, Float maxScore) {
+    public Assighnment(String details, String assighnedDate, String dueDate, int categoryID, int courseID, Float earnedScore, Float maxScore) {
         this.details = details;
         this.assighnedDate = assighnedDate;
         this.dueDate = dueDate;
         this.categoryID = categoryID;
         this.courseID = courseID;
-        this.assighnmentID = assighnmentID;
         this.earnedScore = earnedScore;
         this.maxScore = maxScore;
     }
 
-<<<<<<< HEAD
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
-=======
     public Assighnment() {
         this.details = "";
         this.assighnedDate = "";
         this.dueDate = "";
-        this.categoryID = "";
-        this.courseID = "";
-        this.assighnmentID = "";
+        this.categoryID = -1;
+        this.courseID = -1;
         this.earnedScore = 1f;
         this.maxScore = 1f;
->>>>>>> parent of a244bd5... made initial database changes
-    }
-
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
     }
 
     public String getDetails() {
@@ -75,27 +57,27 @@ public class Assighnment {
         this.dueDate = dueDate;
     }
 
-    public String getCategoryID() {
+    public int getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(String categoryID) {
+    public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }
 
-    public String getCourseID() {
+    public int getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(String courseID) {
+    public void setCourseID(int courseID) {
         this.courseID = courseID;
     }
 
-    public String getAssighnmentID() {
+    public int getAssighnmentID() {
         return assighnmentID;
     }
 
-    public void setAssighnmentID(String assighnmentID) {
+    public void setAssighnmentID(int assighnmentID) {
         this.assighnmentID = assighnmentID;
     }
 
@@ -113,5 +95,17 @@ public class Assighnment {
 
     public void setMaxScore(Float maxScore) {
         this.maxScore = maxScore;
+    }
+
+    @Override
+    public String toString() {
+        return "Assighnment ID: " + assighnmentID + '\n' +
+                "CategoryID: " + categoryID + '\n' +
+                "CourseID: " + courseID + '\n' +
+                "Details" + details + '\n' +
+                "Assighned Date: " + assighnedDate + '\n' +
+                "Due Date" + dueDate + '\n' +
+                "Earned Score:" + earnedScore + '\n'+
+                "Max Score: " + maxScore;
     }
 }

@@ -17,6 +17,12 @@ public class Enrollment {
         this.enrollmentDate = enrollmentDate;
     }
 
+    public Enrollment() {
+        this.studentID = "";
+        this.courseID = "";
+        this.enrollmentDate = "";
+    }
+
     public int getKey() {
         return key;
     }
@@ -47,5 +53,13 @@ public class Enrollment {
 
     public void setEnrollmentDate(String enrollmentDate) {
         this.enrollmentDate = enrollmentDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Student ID: " + studentID + '\n' +
+                "Course ID: " + courseID + '\n' +
+                "Enrollment Date: " + enrollmentDate;
+        
     }
 }

@@ -8,24 +8,15 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.COURSE_TABLE)
 public class Course {
     @PrimaryKey(autoGenerate = true)
-    private int key;
-    String instructor,title,description,startDate,endDate,courseID;
+    private int courseID;
+    String instructor,title,description,startDate,endDate;
 
-    public Course(String instructor, String title, String description, String startDate, String endDate, String courseID) {
+    public Course(String instructor, String title, String description, String startDate, String endDate) {
         this.instructor = instructor;
         this.title = title;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.courseID = courseID;
-<<<<<<< HEAD
-    }
-
-    public int getKey() {
-        return key;
-    }
-
-=======
     }
 
     public Course() {
@@ -34,16 +25,6 @@ public class Course {
         this.description = "";
         this.startDate = "";
         this.endDate = "";
-        this.courseID = "";
-    }
-
-    public int getKey() {
-        return key;
-    }
-
->>>>>>> parent of a244bd5... made initial database changes
-    public void setKey(int key) {
-        this.key = key;
     }
 
     public String getInstructor() {
@@ -86,24 +67,21 @@ public class Course {
         this.endDate = endDate;
     }
 
-    public String getCourseID() {
+    public int getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(String courseID) {
+    public void setCourseID(int courseID) {
         this.courseID = courseID;
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public String toString() {
-        return "Course ID: " + courseID + "\n";
+        return "Course ID: " + courseID + "\n" +
                 "Instructor: " + instructor + '\n' +
                 "Title: " + title + '\n' +
                 "Description: " + description + '\n' +
                 "Start Date: " + startDate + '\n' +
                 "End Date: " + endDate;
     }
->>>>>>> parent of a244bd5... made initial database changes
 }

@@ -8,42 +8,23 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.GRADECATEGORY_TABLE)
 public class GradeCategory {
     @PrimaryKey(autoGenerate = true)
-    private int key;
+    private int categoryID;
 
-    String title,gradeID,assighnedDate,categoryID;
+    String title,gradeID,assighnedDate;
     Float weight;
 
-<<<<<<< HEAD
-    public GradeCategory(String title, String gradeID, String assighnedDate, String categoryID, Float weight) {
+    public GradeCategory(String title, String gradeID, String assighnedDate, Float weight) {
         this.title = title;
         this.gradeID = gradeID;
         this.assighnedDate = assighnedDate;
-        this.categoryID = categoryID;
         this.weight = weight;
     }
 
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
-=======
     public GradeCategory() {
         this.title = "";
         this.gradeID = "";
         this.assighnedDate = "";
-        this.categoryID = "";
         this.weight = 1f;
->>>>>>> parent of a244bd5... made initial database changes
-    }
-
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
     }
 
     public String getTitle() {
@@ -70,11 +51,11 @@ public class GradeCategory {
         this.assighnedDate = assighnedDate;
     }
 
-    public String getCategoryID() {
+    public int getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(String categoryID) {
+    public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }
 
@@ -85,16 +66,13 @@ public class GradeCategory {
     public void setWeight(Float weight) {
         this.weight = weight;
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public String toString() {
-        return "Title: " + title + '\n' +
+        return "Category ID: " + categoryID + '\n' +
                 "Grade ID: " + gradeID + '\n' +
+                "Title: " + title + '\n' +
                 "AssighnedDate: " + assighnedDate + '\n' +
-                "Category ID: " + categoryID + '\n' +
                 "Weight: " + weight;
     }
->>>>>>> parent of a244bd5... made initial database changes
 }
