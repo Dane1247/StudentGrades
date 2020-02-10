@@ -8,23 +8,24 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.COURSE_TABLE)
 public class Course {
     @PrimaryKey(autoGenerate = true)
-    private int courseID;
-    String instructor,title,description,startDate,endDate;
+    private int key;
+    String instructor,title,description,startDate,endDate,courseID;
 
-    public Course(String instructor, String title, String description, String startDate, String endDate) {
+    public Course(String instructor, String title, String description, String startDate, String endDate, String courseID) {
         this.instructor = instructor;
         this.title = title;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.courseID = courseID;
     }
 
-    public Course() {
-        this.instructor = "";
-        this.title = "";
-        this.description = "";
-        this.startDate = "";
-        this.endDate = "";
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 
     public String getInstructor() {
@@ -67,21 +68,11 @@ public class Course {
         this.endDate = endDate;
     }
 
-    public int getCourseID() {
+    public String getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(int courseID) {
+    public void setCourseID(String courseID) {
         this.courseID = courseID;
-    }
-
-    @Override
-    public String toString() {
-        return "Course ID: " + courseID + "\n" +
-                "Instructor: " + instructor + '\n' +
-                "Title: " + title + '\n' +
-                "Description: " + description + '\n' +
-                "Start Date: " + startDate + '\n' +
-                "End Date: " + endDate;
     }
 }

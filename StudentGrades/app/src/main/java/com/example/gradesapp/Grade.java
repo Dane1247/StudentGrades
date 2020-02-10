@@ -8,23 +8,25 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.GRADE_TABLE)
 public class Grade {
     @PrimaryKey(autoGenerate = true)
-    private int gradeID;
-    String score,assighnmentID,studentID,courseID,dateEarned;
+    private int key;
 
-    public Grade(String score, String assighnmentID, String studentID, String courseID, String dateEarned) {
+    String score,assighnmentID,studentID,courseID,dateEarned,gradeID;
+
+    public Grade(String score, String assighnmentID, String studentID, String courseID, String dateEarned, String gradeID) {
         this.score = score;
         this.assighnmentID = assighnmentID;
         this.studentID = studentID;
         this.courseID = courseID;
         this.dateEarned = dateEarned;
+        this.gradeID = gradeID;
     }
 
-    public Grade() {
-        this.score = "";
-        this.assighnmentID = "";
-        this.studentID = "";
-        this.courseID = "";
-        this.dateEarned = "";
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 
     public String getScore() {
@@ -67,21 +69,11 @@ public class Grade {
         this.dateEarned = dateEarned;
     }
 
-    public int getGradeID() {
+    public String getGradeID() {
         return gradeID;
     }
 
-    public void setGradeID(int gradeID) {
+    public void setGradeID(String gradeID) {
         this.gradeID = gradeID;
-    }
-
-    @Override
-    public String toString() {
-        return  "Grade ID: " + gradeID + '\n' +
-                "Assighnment ID: " + assighnmentID + '\n' +
-                "Student ID: " + studentID + '\n' +
-                "Course ID: " + courseID + '\n' +
-                "Score: " + score + '\n' +
-                "Date Earned: " + dateEarned;
     }
 }

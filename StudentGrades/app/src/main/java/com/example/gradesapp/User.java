@@ -8,23 +8,25 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.USER_TABLE)
 public class User {
     @PrimaryKey(autoGenerate = true)
-    private int studentID;
+    private int key;
 
-    String username,password,firstName,lastName;
+    String username,password,firstName,lastName,userID;
 
     public User(String inputUsername, String inputPassword,
-                String inputFirstName, String inputLastName){
+                String inputFirstName, String inputLastName,String inputUserID){
         username = inputUsername;
         password = inputPassword;
         firstName = inputFirstName;
         lastName = inputLastName;
+        userID = inputUserID;
     }
 
-    public User(){
-        username = "";
-        password = "";
-        firstName = "";
-        lastName = "";
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 
     public String getUsername() {
@@ -59,20 +61,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getUserID() {
-        return studentID;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUserID(int studentID) {
-        this.studentID = studentID;
-    }
-
-    @Override
-    public String toString() {
-        return "Student ID: " + studentID + '\n' +
-                "Username: " + username + '\n' +
-                "Password: " + password + '\n' +
-                "First Name='" + firstName + '\n' +
-                "Last Name='" + lastName;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }

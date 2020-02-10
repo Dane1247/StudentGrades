@@ -21,6 +21,7 @@ public interface GradeCategoryDAO {
     @Delete
     void delete(GradeCategory... users);
 
+
     @Query("SELECT * FROM " + AppDatabase.GRADECATEGORY_TABLE)
     List<GradeCategory> getGradeCategories();
 

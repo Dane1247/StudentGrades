@@ -8,23 +8,25 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.GRADECATEGORY_TABLE)
 public class GradeCategory {
     @PrimaryKey(autoGenerate = true)
-    private int categoryID;
+    private int key;
 
-    String title,gradeID,assighnedDate;
+    String title,gradeID,assighnedDate,categoryID;
     Float weight;
 
-    public GradeCategory(String title, String gradeID, String assighnedDate, Float weight) {
+    public GradeCategory(String title, String gradeID, String assighnedDate, String categoryID, Float weight) {
         this.title = title;
         this.gradeID = gradeID;
         this.assighnedDate = assighnedDate;
+        this.categoryID = categoryID;
         this.weight = weight;
     }
 
-    public GradeCategory() {
-        this.title = "";
-        this.gradeID = "";
-        this.assighnedDate = "";
-        this.weight = 1f;
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 
     public String getTitle() {
@@ -51,11 +53,11 @@ public class GradeCategory {
         this.assighnedDate = assighnedDate;
     }
 
-    public int getCategoryID() {
+    public String getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(int categoryID) {
+    public void setCategoryID(String categoryID) {
         this.categoryID = categoryID;
     }
 
@@ -65,14 +67,5 @@ public class GradeCategory {
 
     public void setWeight(Float weight) {
         this.weight = weight;
-    }
-
-    @Override
-    public String toString() {
-        return "Category ID: " + categoryID + '\n' +
-                "Grade ID: " + gradeID + '\n' +
-                "Title: " + title + '\n' +
-                "AssighnedDate: " + assighnedDate + '\n' +
-                "Weight: " + weight;
     }
 }
