@@ -21,9 +21,12 @@ public interface CourseDAO {
     @Delete
     void delete(Course... users);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " ORDER BY username")
-    List<Course> getUsers();
+    @Query("SELECT * FROM " + AppDatabase.COURSE_TABLE)
+    List<Course> getCourses();
 
-    @Query("DELETE FROM " + AppDatabase.USER_TABLE)
+    @Query("SELECT * FROM " + AppDatabase.COURSE_TABLE + " WHERE courseID = :inputCourseID")
+    List<Course> getCoursesWithCourseID(int inputCourseID);
+
+    @Query("DELETE FROM " + AppDatabase.COURSE_TABLE)
     void nukeTable();
 }

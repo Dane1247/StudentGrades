@@ -21,8 +21,11 @@ public interface UserDAO {
     @Delete
     void delete(User... users);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " ORDER BY username")
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
     List<User> getUsers();
+
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE studentID = :inputStudentID")
+    List<User> getUserWithId(int inputStudentID);
 
     @Query("DELETE FROM " + AppDatabase.USER_TABLE)
     void nukeTable();
