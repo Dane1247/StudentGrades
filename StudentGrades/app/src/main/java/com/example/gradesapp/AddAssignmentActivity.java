@@ -80,6 +80,11 @@ public class AddAssignmentActivity extends AppCompatActivity {
             return;
         }
 
+        /*
+
+            IF YALL ARE GUNNA EDIT THIS FILE, START HERE, EVERYTHING ELSE PRETTY MUCH WORKS
+         */
+
         Assignment assignment = new Assignment(
             this.name.getText().toString(),
             this.dateAssigned.getText().toString(),
@@ -89,6 +94,12 @@ public class AddAssignmentActivity extends AppCompatActivity {
             Float.parseFloat(this.pointsEarned.getText().toString()),
             Float.parseFloat(this.pointsPossible.getText().toString())
         );
+
+        this.assignmentDAO.insert(assignment);
+        for ( Assignment a : this.assignmentDAO.getAssignments() ){
+            System.out.println(a);
+            System.out.println("\n\n");
+        }
 
         // calculate the score -> a String like "XX%"
         Float pointsEarnedAsFloat = Float.parseFloat(this.pointsEarned.getText().toString());
@@ -110,7 +121,7 @@ public class AddAssignmentActivity extends AppCompatActivity {
             Float.parseFloat(this.weight.getText().toString())
         );
 
-        this.assignmentDAO.insert(assignment);
+
 
 
         finish();

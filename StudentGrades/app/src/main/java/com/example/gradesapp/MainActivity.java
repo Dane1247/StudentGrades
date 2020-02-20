@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        this.nuke_all(this);
+
         // Sean
         // sets up dummy data that I can use to test CourseOverview
         delete_for_production_add_dummy_data_to_database_for_testing_course_overview(this);
@@ -54,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
         // Sean
         // only here to give me access to the Course Overview activity
         delete_for_production_set_up_go_to_course_overview_button();
+    }
+
+    private void nuke_all(Context c){
+        Room.databaseBuilder(c, AppDatabase.class, AppDatabase.dbName).allowMainThreadQueries().build().getUserDAO().nukeTable();
+        Room.databaseBuilder(c, AppDatabase.class, AppDatabase.dbName).allowMainThreadQueries().build().getAssignmentDAO().nukeTable();
+        Room.databaseBuilder(c, AppDatabase.class, AppDatabase.dbName).allowMainThreadQueries().build().getCourseDAO().nukeTable();
+        Room.databaseBuilder(c, AppDatabase.class, AppDatabase.dbName).allowMainThreadQueries().build().getEnrollmentDAO().nukeTable();
+        Room.databaseBuilder(c, AppDatabase.class, AppDatabase.dbName).allowMainThreadQueries().build().getGradeCategoryDAO().nukeTable();
+        Room.databaseBuilder(c, AppDatabase.class, AppDatabase.dbName).allowMainThreadQueries().build().getGradeDAO().nukeTable();
     }
 
     // Sean
