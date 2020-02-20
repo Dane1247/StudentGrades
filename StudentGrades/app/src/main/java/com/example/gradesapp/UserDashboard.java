@@ -1,6 +1,7 @@
 package com.example.gradesapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import androidx.room.Room;
 
 import com.example.gradesapp.DB.AppDatabase;
 import com.example.gradesapp.DB.CourseDAO;
+import com.example.gradesapp.DB.GradeDAO;
 import com.example.gradesapp.DB.UserDAO;
 import com.example.gradesapp.DB.EnrollmentDAO;
 
@@ -29,6 +31,7 @@ public class UserDashboard extends AppCompatActivity {
     private UserDAO userDAOReference;
     private EnrollmentDAO enrollmentDAOReference;
     private CourseDAO courseDAOReference;
+    private GradeDAO gradeDAOReference;
     private List<String> data; // list of courses (name and grade)
 
     @Override
@@ -36,8 +39,7 @@ public class UserDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity);
         ListView lv = findViewById(R.id.listview);
-        int userID = getIntent().getExtras().getInt("userID");
-
+        final int userID = getIntent().getExtras().getInt("userID");
         getDAOs();
 
         List<Enrollment> courses = enrollmentDAOReference.getEnrollmentsWithStudentID(userID);
@@ -49,7 +51,10 @@ public class UserDashboard extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //LIst item clicked
+                Intent intent = new Intent(view.getContext(), CourseDashboard.class);
+                intent.putExtra("courseID", "courseID");
+                intent.putExtra("userID", userID);
+                startActivity(intent);
             }
         });
     }
@@ -67,14 +72,23 @@ public class UserDashboard extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build()
                 .getCourseDAO();
+        gradeDAOReference = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.dbName)
+                .allowMainThreadQueries()
+                .build()
+                .getGradeDAO();
+    }
+
+    private String getGrade(int courseid){
+        List<Grade> grade = gradeDAOReference.getGradeWithCourseID(courseid);
+        return grade.get(0).score;
     }
 
     private void generateListContent(List<Enrollment> courseid) {
         Iterator iterator = courseid.iterator();
         while(iterator.hasNext()) {
             List<Course> course = (List<Course>) iterator.next();
-            courseDAOReference.getCoursesWithCourseID(course.get(0).getCourseID());
-            data.add(courseid.getTitle());
+            List<Course> courses = courseDAOReference.getCoursesWithCourseID(course.get(0).getCourseID());
+            data.add(courses.get(0).getTitle() + getGrade(courses.get(0).getCourseID()));
         }
     }
 
@@ -111,19 +125,10 @@ public class UserDashboard extends AppCompatActivity {
                 convertView = inflater.inflate(layout, parent, false);
                 ViewHolder viewHolder = new ViewHolder();
                 viewHolder.title = convertView.findViewById(R.id.list_item_text);
-                viewHolder.button = convertView.findViewById(R.id.list_item_btn);
                 convertView.setTag(viewHolder);
             }
 
             mainViewholder = (ViewHolder) convertView.getTag();
-            mainViewholder.button.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    //button for course was selected
-                }
-
-            });
             mainViewholder.title.setText(getItem(position));
             return convertView;
 
@@ -132,7 +137,6 @@ public class UserDashboard extends AppCompatActivity {
 
     public class ViewHolder {
         TextView title;
-        Button button;
     }
 
 }
