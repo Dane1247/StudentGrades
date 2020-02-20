@@ -2,6 +2,7 @@ package com.example.gradesapp;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -24,7 +25,7 @@ public class UserDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
 
-        final int userID = getIntent().getExtras().getInt("user");
+        final int userID = getIntent().getExtras().getInt("User");
 
 /*        tvUser = findViewById(R.id.tvUser);
 
@@ -36,8 +37,14 @@ public class UserDashboard extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build()
                 .getUserDAO();
+
+        tvUser = findViewById(R.id.tvUser);
+
         List<User> user = userDAOReference.getUserWithId(userID);
         String name = user.get(0).getFirstName() + " " + user.get(0).getLastName();
+        //tvUser.setText("Hello, ".concat(name));
         tvUser.setText("Hello, " + name);
+        Toast.makeText(UserDashboard.this, name, Toast.LENGTH_SHORT).show();
+        //System.out.println(name);
     }
 }
