@@ -13,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.room.Room;
 
 import com.example.gradesapp.DB.AppDatabase;
-import com.example.gradesapp.DB.AssighnmentDAO;
+import com.example.gradesapp.DB.AssignmentDAO;
 import com.example.gradesapp.DB.CourseDAO;
 import com.example.gradesapp.DB.UserDAO;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -100,11 +100,11 @@ public class MainActivity extends AppCompatActivity {
                 AppDatabase.dbName
         ).allowMainThreadQueries().build().getCourseDAO();
 
-        AssighnmentDAO assignmentDAO = Room.databaseBuilder(
+        AssignmentDAO assignmentDAO = Room.databaseBuilder(
                 c,
                 AppDatabase.class,
                 AppDatabase.dbName
-        ).allowMainThreadQueries().build().getAssighnmentDAO();
+        ).allowMainThreadQueries().build().getAssignmentDAO();
 
 
         if ( ! (userDAO.getUserFromUsername("seantowne").size() >= 1) ) {

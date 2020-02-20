@@ -10,20 +10,20 @@ public class GradeCategory {
     @PrimaryKey(autoGenerate = true)
     private int categoryID;
     int gradeID;
-    String title,assighnedDate;
+    String title,assignedDate;
     Float weight;
 
-    public GradeCategory(String title, int gradeID, String assighnedDate, Float weight) {
+    public GradeCategory(String title, int gradeID, String assignedDate, Float weight) {
         this.title = title;
         this.gradeID = gradeID;
-        this.assighnedDate = assighnedDate;
+        this.assignedDate = assignedDate;
         this.weight = weight;
     }
 
     public GradeCategory() {
         this.title = "";
         this.gradeID = -1;
-        this.assighnedDate = "";
+        this.assignedDate = "";
         this.weight = 1f;
     }
 
@@ -43,12 +43,12 @@ public class GradeCategory {
         this.gradeID = gradeID;
     }
 
-    public String getAssighnedDate() {
-        return assighnedDate;
+    public String getAssignedDate() {
+        return assignedDate;
     }
 
-    public void setAssighnedDate(String assighnedDate) {
-        this.assighnedDate = assighnedDate;
+    public void setAssignedDate(String assignedDate) {
+        this.assignedDate = assignedDate;
     }
 
     public int getCategoryID() {
@@ -72,7 +72,7 @@ public class GradeCategory {
         return "Category ID: " + categoryID + '\n' +
                 "Grade ID: " + gradeID + '\n' +
                 "Title: " + title + '\n' +
-                "AssighnedDate: " + assighnedDate + '\n' +
+                "AssignedDate: " + assignedDate + '\n' +
                 "Weight: " + weight;
     }
     //

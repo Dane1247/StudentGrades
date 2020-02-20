@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.gradesapp.DB.AppDatabase;
-import com.example.gradesapp.DB.AssighnmentDAO;
+import com.example.gradesapp.DB.AssignmentDAO;
 import com.example.gradesapp.DB.CourseDAO;
 import com.example.gradesapp.DB.UserDAO;
 
@@ -27,7 +27,7 @@ public class CourseOverView extends AppCompatActivity {
 
     UserDAO userDAO;
     CourseDAO courseDAO;
-    AssighnmentDAO assighnmentDAO;
+    AssignmentDAO assignmentDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class CourseOverView extends AppCompatActivity {
         addAss.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent i = new Intent(CourseOverView.this, AddAssighnmentActivity.class);
+                Intent i = new Intent(CourseOverView.this, AddAssignmentActivity.class);
                 startActivity(i);
             }
         });
@@ -109,11 +109,11 @@ public class CourseOverView extends AppCompatActivity {
                 AppDatabase.class,
                 AppDatabase.dbName
         ).allowMainThreadQueries().build().getCourseDAO();
-        this.assighnmentDAO = Room.databaseBuilder(
+        this.assignmentDAO = Room.databaseBuilder(
                 c,
                 AppDatabase.class,
                 AppDatabase.dbName
-        ).allowMainThreadQueries().build().getAssighnmentDAO();
+        ).allowMainThreadQueries().build().getAssignmentDAO();
     }
 
     // Sean

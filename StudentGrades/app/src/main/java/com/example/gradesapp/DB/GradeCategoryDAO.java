@@ -30,6 +30,7 @@ public interface GradeCategoryDAO {
     @Query("SELECT * FROM " + AppDatabase.GRADECATEGORY_TABLE + " WHERE categoryID = :inputCategoryID")
     List<GradeCategory> getGradeCategoryWithCategoryID(int inputCategoryID);
 
+
     @Query("DELETE FROM " + AppDatabase.GRADECATEGORY_TABLE)
     void nukeTable();
 }

@@ -27,8 +27,8 @@ public interface GradeDAO {
     @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE + " WHERE studentID = :inputStudentID")
     List<Grade> getGradeWithStudentID(int inputStudentID);
 
-    @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE + " WHERE assighnmentID = :inputAssighnmentID")
-    List<Grade> getGradeWithAssighnmentID(int inputAssighnmentID);
+    @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE + " WHERE assignmentID = :inputAssignmentID")
+    List<Grade> getGradeWithAssignmentID(int inputAssignmentID);
 
     @Query("SELECT * FROM " + AppDatabase.GRADE_TABLE + " WHERE courseID = :inputCourseID")
     List<Grade> getGradeWithCourseID(int inputCourseID);

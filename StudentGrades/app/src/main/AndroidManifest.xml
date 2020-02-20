@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AddAssighnmentActivity"
-            android:label="@string/title_activity_add_assighnment"
+            android:name=".AddAssignmentActivity"
+            android:label="AddAssignmentActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".CourseOverView"

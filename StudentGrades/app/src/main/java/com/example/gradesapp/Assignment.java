@@ -5,17 +5,25 @@ import androidx.room.PrimaryKey;
 
 import com.example.gradesapp.DB.AppDatabase;
 
-@Entity(tableName = AppDatabase.ASSIGHNMENT_TABLE)
-public class Assighnment {
+@Entity(tableName = AppDatabase.ASSIGNMENT_TABLE)
+public class Assignment {
     @PrimaryKey(autoGenerate = true)
-    private int assighnmentID;
-    String details,assighnedDate,dueDate;
+    private int assignmentID;
+    String details,assignedDate,dueDate;
     int categoryID,courseID;
     Float earnedScore,maxScore;
 
-    public Assighnment(String details, String assighnedDate, String dueDate, int categoryID, int courseID, Float earnedScore, Float maxScore) {
+    public Assignment(
+            String details,
+            String assignedDate,
+            String dueDate,
+            int categoryID,
+            int courseID,
+            Float earnedScore,
+            Float maxScore
+    ){
         this.details = details;
-        this.assighnedDate = assighnedDate;
+        this.assignedDate = assignedDate;
         this.dueDate = dueDate;
         this.categoryID = categoryID;
         this.courseID = courseID;
@@ -23,9 +31,9 @@ public class Assighnment {
         this.maxScore = maxScore;
     }
 
-    public Assighnment() {
+    public Assignment() {
         this.details = "";
-        this.assighnedDate = "";
+        this.assignedDate = "";
         this.dueDate = "";
         this.categoryID = -1;
         this.courseID = -1;
@@ -41,12 +49,12 @@ public class Assighnment {
         this.details = details;
     }
 
-    public String getAssighnedDate() {
-        return assighnedDate;
+    public String getAssignedDate() {
+        return assignedDate;
     }
 
-    public void setAssighnedDate(String assighnedDate) {
-        this.assighnedDate = assighnedDate;
+    public void setAssignedDate(String assignedDate) {
+        this.assignedDate = assignedDate;
     }
 
     public String getDueDate() {
@@ -73,12 +81,12 @@ public class Assighnment {
         this.courseID = courseID;
     }
 
-    public int getAssighnmentID() {
-        return assighnmentID;
+    public int getAssignmentID() {
+        return assignmentID;
     }
 
-    public void setAssighnmentID(int assighnmentID) {
-        this.assighnmentID = assighnmentID;
+    public void setAssignmentID(int assignmentID) {
+        this.assignmentID = assignmentID;
     }
 
     public Float getEarnedScore() {
@@ -99,11 +107,11 @@ public class Assighnment {
 
     @Override
     public String toString() {
-        return "Assighnment ID: " + assighnmentID + '\n' +
+        return "Assignment ID: " + assignmentID + '\n' +
                 "CategoryID: " + categoryID + '\n' +
                 "CourseID: " + courseID + '\n' +
                 "Details" + details + '\n' +
-                "Assighned Date: " + assighnedDate + '\n' +
+                "Assigned Date: " + assignedDate + '\n' +
                 "Due Date" + dueDate + '\n' +
                 "Earned Score:" + earnedScore + '\n'+
                 "Max Score: " + maxScore;
