@@ -5,6 +5,8 @@ import androidx.room.PrimaryKey;
 
 import com.example.gradesapp.DB.AppDatabase;
 
+import java.util.List;
+
 @Entity(tableName = AppDatabase.USER_TABLE)
 public class User {
     @PrimaryKey(autoGenerate = true)

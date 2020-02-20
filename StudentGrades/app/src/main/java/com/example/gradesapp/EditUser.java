@@ -1,11 +1,5 @@
 package com.example.gradesapp;
 
-<<<<<<< HEAD
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
-=======
->>>>>>> origin/Janelle
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,12 +13,9 @@ import com.example.gradesapp.DB.UserDAO;
 
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
->>>>>>> origin/Janelle
 public class EditUser extends AppCompatActivity {
 
     private UserDAO userDAOReference;
@@ -52,11 +43,7 @@ public class EditUser extends AppCompatActivity {
 
         final List<User> user = userDAOReference.getUserWithId(userID);
         String name = user.get(0).getFirstName() + " " + user.get(0).getLastName();
-<<<<<<< HEAD
-        welcome.setText("Hello, ".concat(name));
-=======
         welcome.setText("Hello, " + name);
->>>>>>> origin/Janelle
 
         final String realPassword = user.get(0).getPassword();
 
@@ -66,14 +53,6 @@ public class EditUser extends AppCompatActivity {
                 String password = currentPW.getText().toString();
                 String newPassword = newPW.getText().toString();
 
-<<<<<<< HEAD
-                if(password == realPassword && newPassword != password) {
-                    user.get(0).setPassword(newPassword);
-                    Intent intent = new Intent(v.getContext(), UserDashboard.class);
-                    intent.putExtra("userID", userID);
-                    Toast.makeText(getApplicationContext(),"Updated Password",Toast.LENGTH_LONG).show();
-                    startActivity(intent);
-=======
                 if(password.equals(realPassword) && !newPassword.equals(password) ){
                     user.get(0).setPassword(newPassword);
                     User newUser = user.get(0);
@@ -83,7 +62,6 @@ public class EditUser extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Updated Password" ,Toast.LENGTH_LONG).show();
                     startActivity(intent);
                     finish();
->>>>>>> origin/Janelle
 
                 } else {
                     Toast.makeText(getApplicationContext(),"Try Again",Toast.LENGTH_SHORT).show();
