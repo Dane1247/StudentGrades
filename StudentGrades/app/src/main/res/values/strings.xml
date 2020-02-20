@@ -21,4 +21,11 @@
     <string name="courseDescription">Description</string>
     <string name="courseStart">Start Date</string>
     <string name="courseEnd">End Date</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="add_button">Add</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="userCredentials">User Credentials</string>
+    <string name="confirmButton">Confirm</string>
 </resources>

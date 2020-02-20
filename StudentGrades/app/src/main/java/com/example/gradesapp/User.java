@@ -20,6 +20,13 @@ public class User {
         lastName = inputLastName;
     }
 
+    public User(){
+        username = "";
+        password = "";
+        firstName = "";
+        lastName = "";
+    }
+
     public String getUsername() {
         return username;
     }

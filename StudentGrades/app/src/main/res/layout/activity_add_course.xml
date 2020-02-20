@@ -4,73 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addCourseActivity">
-
-    <TextView
-        android:id="@+id/courseEnd"
-        android:layout_width="83dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="32dp"
-        android:hint="@string/courseEnd"
-        app:layout_constraintStart_toStartOf="@+id/courseStart"
-        app:layout_constraintTop_toBottomOf="@+id/courseStart" />
-
-    <TextView
-        android:id="@+id/courseStart"
-        android:layout_width="84dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="32dp"
-        android:hint="@string/courseStart"
-        app:layout_constraintStart_toStartOf="@+id/couseDescription"
-        app:layout_constraintTop_toBottomOf="@+id/couseDescription" />
-
-    <TextView
-        android:id="@+id/couseDescription"
-        android:layout_width="84dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="27dp"
-        android:hint="@string/courseDescription"
-        app:layout_constraintStart_toStartOf="@+id/courseInstructor"
-        app:layout_constraintTop_toBottomOf="@+id/courseInstructor" />
+    tools:context=".AddCourseActivity">
 
     <TextView
         android:id="@+id/addCourseTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
         android:text="@string/addCourseTitle"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/courseTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/courseID"
-        android:layout_width="84dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="28dp"
-        android:hint="@string/courseID"
-        app:layout_constraintBottom_toTopOf="@+id/courseTitle"
-        app:layout_constraintStart_toStartOf="@+id/courseTitle" />
+    <EditText
+        android:id="@+id/courseInstructor"
+        android:layout_width="163dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/courseInstructor"
+        app:layout_constraintBottom_toTopOf="@+id/courseDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/courseTitle"
+        android:layout_width="165dp"
+        android:layout_height="49dp"
+        android:hint="@string/courseTitle"
+        app:layout_constraintBottom_toTopOf="@+id/courseInstructor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/courseEnd"
+        android:layout_width="165dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="232dp"
+        android:hint="@string/courseEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/courseDescription"
+        android:layout_width="165dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="9dp"
+        android:hint="@string/courseDescription"
+        app:layout_constraintBottom_toTopOf="@+id/courseStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/courseStart"
+        android:layout_width="167dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/courseStart"
+        app:layout_constraintBottom_toTopOf="@+id/courseEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225dp"
-        android:hint="@string/courseTitle"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/cancel_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add_button"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/courseEnd"
+        app:layout_constraintVertical_bias="0.505" />
 
-    <TextView
-        android:id="@+id/courseInstructor"
-        android:layout_width="86dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="32dp"
-        android:hint="@string/courseInstructor"
-        app:layout_constraintStart_toStartOf="@+id/courseTitle"
-        app:layout_constraintTop_toBottomOf="@+id/courseTitle" />
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:text="@string/add_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courseEnd" />
 </androidx.constraintlayout.widget.ConstraintLayout>
