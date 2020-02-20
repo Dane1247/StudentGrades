@@ -41,7 +41,7 @@ public class EditUser extends AppCompatActivity {
                 .build()
                 .getUserDAO();
 
-        List<User> user = userDAOReference.getUserWithId(userID);
+        final List<User> user = userDAOReference.getUserWithId(userID);
         String name = user.get(0).getFirstName() + " " + user.get(0).getLastName();
         welcome.setText("Hello, " + name);
 
@@ -53,11 +53,15 @@ public class EditUser extends AppCompatActivity {
                 String password = currentPW.getText().toString();
                 String newPassword = newPW.getText().toString();
 
-                if(password == realPassword && newPassword != password) {
+                if(password.equals(realPassword) && !newPassword.equals(password) ){
+                    user.get(0).setPassword(newPassword);
+                    User newUser = user.get(0);
+                    userDAOReference.update(newUser);
                     Intent intent = new Intent(v.getContext(), UserDashboard.class);
                     intent.putExtra("userID", userID);
-                    Toast.makeText(getApplicationContext(),"Updated Password",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Updated Password" ,Toast.LENGTH_LONG).show();
                     startActivity(intent);
+                    finish();
 
                 } else {
                     Toast.makeText(getApplicationContext(),"Try Again",Toast.LENGTH_SHORT).show();

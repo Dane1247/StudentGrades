@@ -128,7 +128,7 @@ public class UserDashboard extends AppCompatActivity {
         String name = user.get(0).getFirstName() + " " + user.get(0).getLastName();
         //tvUser.setText("Hello, ".concat(name));
         //tvUser.setText("Hello, " + name);
-        Toast.makeText(UserDashboard.this, name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(UserDashboard.this, name + " " + user.get(0).getPassword(), Toast.LENGTH_SHORT).show();
         //System.out.println(name);
     }
 
