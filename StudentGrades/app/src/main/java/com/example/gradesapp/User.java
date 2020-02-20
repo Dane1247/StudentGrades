@@ -75,5 +75,4 @@ public class User {
                 "First Name='" + firstName + '\n' +
                 "Last Name='" + lastName;
     }
-    //
 }

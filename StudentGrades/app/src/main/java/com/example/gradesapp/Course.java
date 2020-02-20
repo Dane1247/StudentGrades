@@ -4,6 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.example.gradesapp.DB.AppDatabase;
+import com.example.gradesapp.DB.CourseDAO;
 
 @Entity(tableName = AppDatabase.COURSE_TABLE)
 public class Course {
@@ -19,7 +20,7 @@ public class Course {
         this.endDate = endDate;
     }
 
-    public Course() {
+    public Course(String courseInstructor, String courseTitle, String courseDescription, String courseStart, String courseEnd, CourseDAO courseDAO) {
         this.instructor = "";
         this.title = "";
         this.description = "";
