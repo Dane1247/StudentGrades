@@ -8,25 +8,23 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.GRADECATEGORY_TABLE)
 public class GradeCategory {
     @PrimaryKey(autoGenerate = true)
-    private int key;
-
-    String title,gradeID,assighnedDate,categoryID;
+    private int categoryID;
+    int gradeID;
+    String title,assighnedDate;
     Float weight;
 
-    public GradeCategory(String title, String gradeID, String assighnedDate, String categoryID, Float weight) {
+    public GradeCategory(String title, int gradeID, String assighnedDate, Float weight) {
         this.title = title;
         this.gradeID = gradeID;
         this.assighnedDate = assighnedDate;
-        this.categoryID = categoryID;
         this.weight = weight;
     }
 
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
+    public GradeCategory() {
+        this.title = "";
+        this.gradeID = -1;
+        this.assighnedDate = "";
+        this.weight = 1f;
     }
 
     public String getTitle() {
@@ -37,11 +35,11 @@ public class GradeCategory {
         this.title = title;
     }
 
-    public String getGradeID() {
+    public int getGradeID() {
         return gradeID;
     }
 
-    public void setGradeID(String gradeID) {
+    public void setGradeID(int gradeID) {
         this.gradeID = gradeID;
     }
 
@@ -53,11 +51,11 @@ public class GradeCategory {
         this.assighnedDate = assighnedDate;
     }
 
-    public String getCategoryID() {
+    public int getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(String categoryID) {
+    public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }
 
@@ -68,4 +66,14 @@ public class GradeCategory {
     public void setWeight(Float weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Category ID: " + categoryID + '\n' +
+                "Grade ID: " + gradeID + '\n' +
+                "Title: " + title + '\n' +
+                "AssighnedDate: " + assighnedDate + '\n' +
+                "Weight: " + weight;
+    }
+    //
 }

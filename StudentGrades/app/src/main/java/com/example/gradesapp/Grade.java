@@ -8,25 +8,24 @@ import com.example.gradesapp.DB.AppDatabase;
 @Entity(tableName = AppDatabase.GRADE_TABLE)
 public class Grade {
     @PrimaryKey(autoGenerate = true)
-    private int key;
+    private int gradeID;
+    String score,dateEarned;
+    int assighnmentID,studentID,courseID;
 
-    String score,assighnmentID,studentID,courseID,dateEarned,gradeID;
-
-    public Grade(String score, String assighnmentID, String studentID, String courseID, String dateEarned, String gradeID) {
+    public Grade(String score, String dateEarned, int assighnmentID, int studentID, int courseID) {
         this.score = score;
+        this.dateEarned = dateEarned;
         this.assighnmentID = assighnmentID;
         this.studentID = studentID;
         this.courseID = courseID;
-        this.dateEarned = dateEarned;
-        this.gradeID = gradeID;
     }
 
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
+    public Grade() {
+        this.score = "";
+        this.assighnmentID = -1;
+        this.studentID = -1;
+        this.courseID = -1;
+        this.dateEarned = "";
     }
 
     public String getScore() {
@@ -37,27 +36,27 @@ public class Grade {
         this.score = score;
     }
 
-    public String getAssighnmentID() {
+    public int getAssighnmentID() {
         return assighnmentID;
     }
 
-    public void setAssighnmentID(String assighnmentID) {
+    public void setAssighnmentID(int assighnmentID) {
         this.assighnmentID = assighnmentID;
     }
 
-    public String getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
-    public String getCourseID() {
+    public int getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(String courseID) {
+    public void setCourseID(int courseID) {
         this.courseID = courseID;
     }
 
@@ -69,11 +68,22 @@ public class Grade {
         this.dateEarned = dateEarned;
     }
 
-    public String getGradeID() {
+    public int getGradeID() {
         return gradeID;
     }
 
-    public void setGradeID(String gradeID) {
+    public void setGradeID(int gradeID) {
         this.gradeID = gradeID;
     }
+
+    @Override
+    public String toString() {
+        return  "Grade ID: " + gradeID + '\n' +
+                "Assighnment ID: " + assighnmentID + '\n' +
+                "Student ID: " + studentID + '\n' +
+                "Course ID: " + courseID + '\n' +
+                "Score: " + score + '\n' +
+                "Date Earned: " + dateEarned;
+    }
+    //
 }

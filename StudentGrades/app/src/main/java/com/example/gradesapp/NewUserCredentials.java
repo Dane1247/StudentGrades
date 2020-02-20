@@ -37,7 +37,7 @@ public class NewUserCredentials {
     ){
         this.firstname = firstname;
         this.lastname  = lastname;
-        this.username  = username;
+        this.username  = username.toLowerCase();
         this.password  = password;
         this.passConf  = passConf;
         this.userDAO   = userDAO;
@@ -94,8 +94,7 @@ public class NewUserCredentials {
             this.getUsername(),
             this.getPassword(),
             this.getFirstname(),
-            this.getLastname(),
-                "user_ID"
+            this.getLastname()
         );
         this.userDAO.insert(newUser);
     }

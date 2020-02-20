@@ -1,14 +1,14 @@
 package com.example.gradesapp.DB;
 
-import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.Query;
-import androidx.room.Update;
+        import androidx.room.Dao;
+        import androidx.room.Delete;
+        import androidx.room.Insert;
+        import androidx.room.Query;
+        import androidx.room.Update;
 
-import com.example.gradesapp.User;
+        import com.example.gradesapp.User;
 
-import java.util.List;
+        import java.util.List;
 
 @Dao
 public interface UserDAO {
@@ -24,9 +24,8 @@ public interface UserDAO {
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
     List<User> getUsers();
 
-    //ask if a list or object should be returned
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE userID = :inputUserID")
-    List<User> getUserWithId(String inputUserID);
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE studentID = :inputStudentID")
+    List<User> getUserWithId(int inputStudentID);
 
     // Sean
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE username = :username")

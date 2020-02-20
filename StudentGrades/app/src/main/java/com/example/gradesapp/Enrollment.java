@@ -9,12 +9,19 @@ import com.example.gradesapp.DB.AppDatabase;
 public class Enrollment {
     @PrimaryKey(autoGenerate = true)
     private int key;
-    String studentID,courseID,enrollmentDate;
+    int studentID,courseID;
+    String enrollmentDate;
 
-    public Enrollment(String studentID, String courseID, String enrollmentDate) {
+    public Enrollment(int studentID, int courseID, String enrollmentDate) {
         this.studentID = studentID;
         this.courseID = courseID;
         this.enrollmentDate = enrollmentDate;
+    }
+
+    public Enrollment() {
+        this.studentID = -1;
+        this.courseID = -1;
+        this.enrollmentDate = "";
     }
 
     public int getKey() {
@@ -25,19 +32,19 @@ public class Enrollment {
         this.key = key;
     }
 
-    public String getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
-    public String getCourseID() {
+    public int getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(String courseID) {
+    public void setCourseID(int courseID) {
         this.courseID = courseID;
     }
 
@@ -48,4 +55,13 @@ public class Enrollment {
     public void setEnrollmentDate(String enrollmentDate) {
         this.enrollmentDate = enrollmentDate;
     }
+
+    @Override
+    public String toString() {
+        return "Student ID: " + studentID + '\n' +
+                "Course ID: " + courseID + '\n' +
+                "Enrollment Date: " + enrollmentDate;
+
+    }
+    //
 }

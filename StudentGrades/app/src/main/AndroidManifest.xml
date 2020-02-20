@@ -10,8 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CreateAccount"
+            android:name=".AddAssighnmentActivity"
+            android:label="@string/title_activity_add_assighnment"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".CourseOverView"
+            android:label="@string/title_activity_course_over_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateAccount"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

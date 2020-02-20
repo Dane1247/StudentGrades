@@ -1,7 +1,7 @@
 package com.example.gradesapp.DB;
 
-import androidx.room.Database;
 import androidx.room.RoomDatabase;
+import androidx.room.Database;
 
 import com.example.gradesapp.Assighnment;
 import com.example.gradesapp.Course;

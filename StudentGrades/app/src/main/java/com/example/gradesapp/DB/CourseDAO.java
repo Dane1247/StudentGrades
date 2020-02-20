@@ -25,7 +25,10 @@ public interface CourseDAO {
     List<Course> getCourses();
 
     @Query("SELECT * FROM " + AppDatabase.COURSE_TABLE + " WHERE courseID = :inputCourseID")
-    List<Course> getCoursesWithCourseID(String inputCourseID);
+    List<Course> getCoursesWithCourseID(int inputCourseID);
+
+    @Query("SELECT * FROM " + AppDatabase.COURSE_TABLE + " WHERE title = :title")
+    List<Course> getCoursesWithTitle(String title);
 
     @Query("DELETE FROM " + AppDatabase.COURSE_TABLE)
     void nukeTable();

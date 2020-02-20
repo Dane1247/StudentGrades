@@ -2,4 +2,6 @@
     <string name="app_name">GradesApp</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_creat_account">CreatAccount</string>
+    <string name="title_activity_course_over_view">CourseOverView</string>
+    <string name="title_activity_add_assighnment">AddAssighnmentActivity</string>
 </resources>
