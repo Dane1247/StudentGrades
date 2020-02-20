@@ -47,23 +47,25 @@ public class UserDashboard extends AppCompatActivity {
 
 
         final int userID = getIntent().getExtras().getInt("userID");
+
         getDAOs();
 
-        List<Enrollment> courses = enrollmentDAOReference.getEnrollmentsWithStudentID(userID);
+        if(enrollmentDAOReference.getEnrollmentsWithStudentID(userID) != null) {
+            List<Enrollment> courses = enrollmentDAOReference.getEnrollmentsWithStudentID(userID);
+            generateListContent(courses);
+            lv.setAdapter(new MyListAdaper(this, R.layout.list_item, data));
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(view.getContext(), CourseDashboard.class);
+                    intent.putExtra("courseID", "courseID");
+                    intent.putExtra("userID", userID);
+                    startActivity(intent);
+                }
+            });
+        }
 
-        generateListContent(courses);
-        lv.setAdapter(new MyListAdaper(this, R.layout.list_item, data));
-
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(), CourseDashboard.class);
-                intent.putExtra("courseID", "courseID");
-                intent.putExtra("userID", userID);
-                startActivity(intent);
-            }
-        });
+        lv.setVisibility(View.INVISIBLE);
 
         editUser.setOnClickListener(new View.OnClickListener() {
             @Override
