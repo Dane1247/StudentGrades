@@ -22,6 +22,7 @@ import com.example.gradesapp.DB.CourseDAO;
 import com.example.gradesapp.DB.GradeDAO;
 import com.example.gradesapp.DB.UserDAO;
 import com.example.gradesapp.DB.EnrollmentDAO;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Iterator;
 import java.util.List;
@@ -33,12 +34,18 @@ public class UserDashboard extends AppCompatActivity {
     private CourseDAO courseDAOReference;
     private GradeDAO gradeDAOReference;
     private List<String> data; // list of courses (name and grade)
+    private FloatingActionButton editUser;
+    private FloatingActionButton addCourse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity);
         ListView lv = findViewById(R.id.listview);
+        editUser = findViewById(R.id.editUser);
+        addCourse = findViewById(R.id.addCourse);
+
+
         final int userID = getIntent().getExtras().getInt("userID");
         getDAOs();
 
@@ -53,6 +60,24 @@ public class UserDashboard extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(view.getContext(), CourseDashboard.class);
                 intent.putExtra("courseID", "courseID");
+                intent.putExtra("userID", userID);
+                startActivity(intent);
+            }
+        });
+
+        editUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), EditUser.class);
+                intent.putExtra("userID", userID);
+                startActivity(intent);
+            }
+        });
+
+        addCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AddCourse.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
             }

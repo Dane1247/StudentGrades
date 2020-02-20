@@ -4,25 +4,12 @@
     android:layout_height="match_parent"
     android:descendantFocusability="blocksDescendants">
 
-    <ImageView
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:id="@+id/list_item_thumbnail"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:src="@mipmap/ic_launcher" />
-
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This is row number 15"
         android:id="@+id/list_item_text"
-        android:layout_toEndOf="@+id/list_item_thumbnail" />
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:text="CST 438      90%"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:layout_alignParentRight="true"
-        android:id="@+id/list_item_btn"/>
 </RelativeLayout>
