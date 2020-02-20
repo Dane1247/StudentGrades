@@ -27,8 +27,13 @@ public interface UserDAO {
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE studentID = :inputStudentID")
     List<User> getUserWithId(int inputStudentID);
 
+    // Janelle
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE username = :username AND password= :password")
     User getUser(String username, String password);
+
+    // Sean
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE username = :username")
+    List<User> getUserFromUsername(String username);
 
     @Query("DELETE FROM " + AppDatabase.USER_TABLE)
     void nukeTable();

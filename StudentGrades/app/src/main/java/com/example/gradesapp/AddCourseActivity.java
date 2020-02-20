@@ -31,6 +31,7 @@ public class AddCourseActivity extends AppCompatActivity {
     private EditText editCourseEnd;
     //private EditText courseID;
     private Button addCourseButton;
+    private Button cancel_button;
 
     private CourseDAO courseDAOReference;
 
@@ -49,6 +50,7 @@ public class AddCourseActivity extends AppCompatActivity {
         editCourseEnd  = findViewById(R.id.courseEnd);
 
         addCourseButton = findViewById(R.id.addCourseButton);
+        cancel_button = findViewById(R.id.cancel_button);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
 
@@ -63,6 +65,14 @@ public class AddCourseActivity extends AppCompatActivity {
                 .getCourseDAO();
 
         final List<User> user = userDAOReference.getUserWithId(userID);
+
+        cancel_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddCourseActivity.this, UserDashboard.class));
+                finish();
+            }
+        });
 
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
