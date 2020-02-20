@@ -40,6 +40,7 @@ public class UserDashboard extends AppCompatActivity {
     private List<String> data; // list of courses (name and grade)
     private FloatingActionButton editUser;
     private FloatingActionButton addCourse;
+    private TextView welcome;
     // end
 
     @Override
@@ -51,6 +52,7 @@ public class UserDashboard extends AppCompatActivity {
         ListView lv = findViewById(R.id.listview);
         editUser = findViewById(R.id.editUser);
         addCourse = findViewById(R.id.addCourse);
+        welcome = findViewById(R.id.welcome);
         // end
 
         final int userID = getIntent().getExtras().getInt("User");
@@ -60,6 +62,11 @@ public class UserDashboard extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build()
                 .getUserDAO();
+
+        List<User> user = userDAOReference.getUserWithId(userID);
+        String name = user.get(0).getFirstName() + " " + user.get(0).getLastName();
+
+        welcome.setText("Welcome " + name);
 
 /*        if(enrollmentDAOReference.getEnrollmentsWithStudentID(userID) != null) {
             List<Enrollment> courses = enrollmentDAOReference.getEnrollmentsWithStudentID(userID);
@@ -123,8 +130,7 @@ public class UserDashboard extends AppCompatActivity {
 
         tvUser = findViewById(R.id.tvUser);*/
 
-        List<User> user = userDAOReference.getUserWithId(userID);
-        String name = user.get(0).getFirstName() + " " + user.get(0).getLastName();
+
         //tvUser.setText("Hello, ".concat(name));
         //tvUser.setText("Hello, " + name);
         Toast.makeText(UserDashboard.this, name + " " + user.get(0).getPassword(), Toast.LENGTH_SHORT).show();

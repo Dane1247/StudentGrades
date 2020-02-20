@@ -7,10 +7,18 @@
     android:orientation="vertical"
     tools:context=".UserDashboard">
 
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="user "
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="446dp" />
+        android:layout_height="378dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/editUser"
@@ -27,6 +35,8 @@
         android:clickable="true"
         app:backgroundTint="#00FFFFFF"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+
 
 </LinearLayout>
 
