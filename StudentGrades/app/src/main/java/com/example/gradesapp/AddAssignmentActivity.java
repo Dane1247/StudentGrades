@@ -26,6 +26,9 @@ public class AddAssignmentActivity extends AppCompatActivity {
     Button   addAssignmentButton;
     Button   cancelActivityButton;
 
+    Integer currentCourseID;
+    Integer currentUserID;
+
     AssignmentDAO assignmentDAO;
     GradeCategoryDAO gradeCategoryDAO;
     GradeDAO gradeDAO;
@@ -77,8 +80,40 @@ public class AddAssignmentActivity extends AppCompatActivity {
             return;
         }
 
-        //Assignment assignment = new Ass
+        Assignment assignment = new Assignment(
+            this.name.getText().toString(),
+            this.dateAssigned.getText().toString(),
+            this.dueDate.getText().toString(),
+            0, // to be changed right away
+            this.currentCourseID,
+            Float.parseFloat(this.pointsEarned.getText().toString()),
+            Float.parseFloat(this.pointsPossible.getText().toString())
+        );
 
+        // calculate the score -> a String like "XX%"
+        Float pointsEarnedAsFloat = Float.parseFloat(this.pointsEarned.getText().toString());
+        Float pointsPossibleAsFloat = Float.parseFloat(this.pointsPossible.getText().toString());
+        String score = new Float(pointsEarnedAsFloat/pointsPossibleAsFloat).toString() + "%";
+
+        Grade grade = new Grade(
+            score,
+            assignment.getDueDate(),
+            assignment.getAssignmentID(),
+            this.currentUserID,
+            this.currentCourseID
+        );
+
+        GradeCategory gradeCategory = new GradeCategory(
+            this.type.getText().toString(),
+            grade.getGradeID(),
+            this.dateAssigned.getText().toString(),
+            Float.parseFloat(this.weight.getText().toString())
+        );
+
+        this.assignmentDAO.insert(assignment);
+
+
+        finish();
     }
 
     private void set_up_member_variables(){
@@ -89,6 +124,13 @@ public class AddAssignmentActivity extends AppCompatActivity {
         this.dueDate             = findViewById(R.id.add_assignment_due_date_edit_text);
         this.type                = findViewById(R.id.add_assignment_type_edit_text);
         this.weight              = findViewById(R.id.add_assignment_weight_edit_text);
+
+        Bundle extras = getIntent().getExtras();
+        this.currentCourseID = extras.getInt("COURSE_ID");
+        this.currentUserID = extras.getInt("USER_ID");
+        System.out.println("Current shit");
+        System.out.println(this.currentCourseID);
+        System.out.println(this.currentUserID);
     }
 
     private void set_up_daos(Context c){

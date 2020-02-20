@@ -13,13 +13,13 @@ import java.util.List;
 @Dao
 public interface AssignmentDAO {
     @Insert
-    void insert(AssignmentDAO... users);
+    void insert(Assignment... users);
 
     @Update
-    void update(AssignmentDAO... users);
+    void update(Assignment... users);
 
     @Delete
-    void delete(AssignmentDAO... users);
+    void delete(Assignment... users);
 
     @Query("SELECT * FROM " + AppDatabase.ASSIGNMENT_TABLE)
     List<Assignment> getAssignments();

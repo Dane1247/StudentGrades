@@ -9,6 +9,7 @@ import com.example.gradesapp.DB.AppDatabase;
 public class Assignment {
     @PrimaryKey(autoGenerate = true)
     private int assignmentID;
+
     String details,assignedDate,dueDate;
     int categoryID,courseID;
     Float earnedScore,maxScore;
@@ -110,10 +111,10 @@ public class Assignment {
         return "Assignment ID: " + assignmentID + '\n' +
                 "CategoryID: " + categoryID + '\n' +
                 "CourseID: " + courseID + '\n' +
-                "Details" + details + '\n' +
+                "Details: " + details + '\n' +
                 "Assigned Date: " + assignedDate + '\n' +
-                "Due Date" + dueDate + '\n' +
-                "Earned Score:" + earnedScore + '\n'+
+                "Due Date: " + dueDate + '\n' +
+                "Earned Score: " + earnedScore + '\n'+
                 "Max Score: " + maxScore;
     }
     //

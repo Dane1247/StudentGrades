@@ -60,6 +60,8 @@ public class CourseOverView extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent i = new Intent(CourseOverView.this, AddAssignmentActivity.class);
+                i.putExtra("COURSE_ID", CourseOverView.this.currentCourse.getCourseID());
+                i.putExtra("USER_ID", CourseOverView.this.currentUser.getStudentID());
                 startActivity(i);
             }
         });
@@ -69,12 +71,14 @@ public class CourseOverView extends AppCompatActivity {
     // Sean
     // a struct for holding an assignment summary
     class AssignmentListItem {
-        String name;
-        Float gradePercent;
+        public String type;
+        public String name;
+        public String score;
 
-        AssignmentListItem(String name, Float gradePercent){
+        AssignmentListItem(String type, String name, String score){
+            this.type = type;
             this.name = name;
-            this.gradePercent = gradePercent;
+            this.score = score;
         }
     }
 
