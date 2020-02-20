@@ -1,5 +1,6 @@
 package com.example.gradesapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -13,25 +14,33 @@ import androidx.room.Room;
 
 import com.example.gradesapp.DB.AppDatabase;
 import com.example.gradesapp.DB.CourseDAO;
+import com.example.gradesapp.DB.UserDAO;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
+
 public class AddCourseActivity extends AppCompatActivity {
 
+
+    private UserDAO userDAOReference;
     private EditText editCourseTitle;
     private EditText editCourseInstructor;
     private EditText editCourseDescription;
     private EditText editCourseStart;
     private EditText editCourseEnd;
     //private EditText courseID;
-    Button addCourseButton;
+    private Button addCourseButton;
 
-    private CourseDAO CourseDAOReference;
+    private CourseDAO courseDAOReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course);
+
+        // pass in current userID
+        final int userID = getIntent().getExtras().getInt("userID");
 
         editCourseTitle = findViewById(R.id.courseTitle);
         editCourseInstructor = findViewById(R.id.courseInstructor);
@@ -39,34 +48,35 @@ public class AddCourseActivity extends AppCompatActivity {
         editCourseStart  = findViewById(R.id.courseStart);
         editCourseEnd  = findViewById(R.id.courseEnd);
 
+        addCourseButton = findViewById(R.id.addCourseButton);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
 
-        CourseDAOReference = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.dbName)
+        userDAOReference = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.dbName)
+                .allowMainThreadQueries()
+                .build()
+                .getUserDAO();
+
+        courseDAOReference = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.dbName)
                 .allowMainThreadQueries()
                 .build()
                 .getCourseDAO();
 
+        final List<User> user = userDAOReference.getUserWithId(userID);
+
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CourseDAOReference.insert(new Course(editCourseTitle.getText().toString(), editCourseInstructor.getText().toString(), editCourseDescription.getText().toString(),
+                courseDAOReference.insert(new Course(editCourseTitle.getText().toString(), editCourseInstructor.getText().toString(), editCourseDescription.getText().toString(),
                         editCourseStart.getText().toString(), editCourseEnd.getText().toString()));
+                Intent i = new Intent(v.getContext(), UserDashboard.class);
+                i.putExtra("userID", userID);
                 Toast.makeText(getApplicationContext(),"Course Added",Toast.LENGTH_LONG).show();
+                startActivity(i);
+                finish();
             }
         });
 
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add Course");
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
 }

@@ -79,7 +79,6 @@ public class UserDashboard extends AppCompatActivity {
 
         // temp hidden
 /*        List<Enrollment> courses = enrollmentDAOReference.getEnrollmentsWithStudentID(userID);
-
         generateListContent(courses);
         lv.setAdapter(new MyListAdaper(this, R.layout.list_item, data));
 
@@ -156,7 +155,7 @@ public class UserDashboard extends AppCompatActivity {
         return grade.get(0).score;
     }
 
-    private void generateListContent(List<Enrollment> courseid) {
+    private void generateListContent(List<Enrollment> courseid) { // changed enrollment to course
         Iterator iterator = courseid.iterator();
         while(iterator.hasNext()) {
             List<Course> course = (List<Course>) iterator.next();
